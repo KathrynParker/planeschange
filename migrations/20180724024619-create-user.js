@@ -23,7 +23,7 @@ module.exports = {
       lastName: {
         type: Sequelize.STRING
       },
-      githubId: {
+      github_id: {
         type: Sequelize.STRING
       },
       facebookId: {
