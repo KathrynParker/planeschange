@@ -20,7 +20,7 @@ module.exports = {
       firstName: {
         type: Sequelize.STRING
       },
-      lastName: {
+      last_name: {
         type: Sequelize.STRING
       },
       github_id: {
