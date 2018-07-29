@@ -75,10 +75,13 @@ class Login extends Component {
                 password: event.target.registerPassword.value,
             }
         })
-            .then((res) => {
-                this.showLoginForm();
-                console.log(res);
+        .then((res) => {
+            this.setState({
+                user: res.data.user,
+                showSignupForm: false,
             })
+            console.log(res);
+        })
             .catch((res) => {
                 console.log(res);
             });
