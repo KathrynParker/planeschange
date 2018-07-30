@@ -8,6 +8,12 @@ const dotenv = require('dotenv');
 const apiRouter = require('./routes/api');
 const setupAuth = require('./auth');
 
+const flightInfo = require('./routes/api/flightInfo');
+const favorites = require('./routes/api/favorites');
+const flightList = require('./routes/api/flightList');
+const hotels = require('./routes/api/hotels');
+const rentals = require('./routes/api/rentals');
+
 dotenv.load();
 
 const app = express();
@@ -25,6 +31,13 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 setupAuth(app);
 
 app.use('/api', apiRouter);
+app.use('/api/flightInfo', flightInfo);
+app.use('/api/favorites', favorites);
+app.use('/api/flightList', flightList);
+app.use('/api/hotels', hotels);
+app.use('/api/rentals', rentals);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
