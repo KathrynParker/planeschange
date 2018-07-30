@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Login from './components/login';
-import FlightInfo from '../src/components/flightinfo/flightInfo';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <div className="App-intro">
-          <Login />
-        </div>
-        <hr></hr>
-        <FlightInfo />
+      <div className="">
+          <h1>Planes Change</h1>
+          <h3>Enter Flight Info to Begin</h3>
+          <input placeholder="Flight Number"></input>
+          <button>Show Me</button>
+          <hr/>
+          <p>Log in to save info</p>
+          <Login></Login>
       </div>
     );
   }
