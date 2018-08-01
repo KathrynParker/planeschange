@@ -17,14 +17,14 @@ class App extends Component {
 
     render() {
         return (
-        <div className="">
-            <h1>Planes Change</h1>
+        <div className="App-center-page">
+            <h1 className="App-page-title">Planes Change</h1>
             <h3>Enter Flight Info to Begin</h3>
-            <input placeholder="Flight Number"></input>
-            <button onClick={this.flightNumEntered}>Show Me</button>
+            <input className="App-input-field" type="text" placeholder="Flight Number"></input>
+            <button  className="App-cta-button" onClick={this.flightNumEntered}>Show Me</button>
             <hr/>
             <p>Log in to save info</p>
-            <Login></Login>
+            <Login />
         </div>
         );
     }

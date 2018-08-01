@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import './Login.css';
 import axios from 'axios';
+
+
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -33,20 +36,18 @@ class Login extends Component {
                                 <label htmlFor="registerPassword">Password:</label>
                                 <input name="registerPassword" type="password" required />
                             </div>
-                            <button type="submit">Register</button>
+                            <button className="Login-rounded-button" type="submit">Register</button>
                         </form>
                     ) : (
                         <form id="loginForm" onSubmit={this.login}>
                             <h2>Login</h2>
                             <div className="form-field">
-                                <label htmlFor="username">Username:</label>
-                                <input name="username" type="text" required />
+                                <input className="Login-input-field" name="username" type="text" placeholder="User Name" required></input>
                             </div>
                             <div className="form-field">
-                                <label htmlFor="password">Password:</label>
-                                <input name="password" type="password" required />
+                                <input className="Login-input-field" name="password" type="text" placeholder="Password" required></input>
                             </div>
-                            <button type="submit">Login</button>
+                            <button className="Login-rounded-button" type="submit">Login</button>
                         </form>
                     )}
                 </div>

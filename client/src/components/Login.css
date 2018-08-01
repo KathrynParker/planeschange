@@ -1,0 +1,70 @@
+html, body {
+    margin:0;
+    padding:0;
+    height:100%;
+    font-family: 'Roboto', sans-serif;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+body {
+    background-image: linear-gradient(to right bottom, #2b67ac, #5a89c1, #85abd6, #b2ceea, #e1f1ff);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+}
+
+.Login-center-page{
+    width:270px;
+    height:150px;
+    position:absolute;
+    left:47%;
+    top:25%;
+    margin:-75px 0 0 -75px;
+}
+
+.Login-page-title {
+    color:#fff;
+    text-align:center;
+    font-size: 2em;
+}
+
+.Login-rounded-button {
+    width: 100%;
+    height: 42px;
+    margin: 20px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: solid 1px #fff;
+    color: #fff;
+    font-size: 1.2em;
+    font-style: 500;
+}
+
+
+.Login-input-field {
+    width: 100%;
+    height: 22px;
+    margin: 10px;
+    /* background-color: rgba(255, 255, 255, 0.3); */
+    color:#fff;
+    font-size: 1.2em;
+    font-weight: 900;
+    padding: 10px;
+    border-style:solid;
+    border:none
+
+}
+
+
+/* .Login-cta-button {
+    width: 100%;
+    height: 42px;
+    margin: 10px;
+    border-radius: 4px;
+    background-color: #2B67AC;
+    border: solid 1px #2B67AC;
+    color: #fff;
+    font-size: 1.2em;
+    font-style: 500;
+} */
