@@ -5,7 +5,7 @@ class DepartureTime extends Component {
 
 	render() {
 		return (
-			<h4>Departure Time: 12:00 PM</h4>
+			<h4>Departure Time: {this.props.filed_departuretime}</h4>
 			)
 	}
 }

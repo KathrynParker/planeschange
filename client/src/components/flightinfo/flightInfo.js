@@ -14,12 +14,12 @@ class FlightInfo extends Component {
 	render() {
 		return (
 			<div>
-                <FlightNum/>
+                <FlightNum />
                 <GateNumber />
                 <FlightStatus />
-                <DepartureTime />
+                <DepartureTime filed_departuretime={this.props.flight.filed_departuretime} />
                 <BoardTime />
-                <Arrivaltime actualarrivaltime={this.props.flight.actualarrivaltime} />
+                <Arrivaltime estimatedarrivaltime={this.props.flight.estimatedarrivaltime} />
                 <form id="emailForm" onSubmit={this.email}> 
                     <p>Email your ETA!</p>
                     <input placeholder="From email"></input>
