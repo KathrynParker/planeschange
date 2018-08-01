@@ -21,8 +21,7 @@ router.get('/:flight', (req, res, next) => {
         const data = response.data.FlightInfoExResult.flights[0];
         res.json(
             {
-                actualdeparturetime: data.actualdeparturetime,
-                actualarrivaltime: data.actualarrivaltime,
+                filed_departuretime: data.filed_departuretime,
                 estimatedarrivaltime: data.estimatedarrivaltime,
                 faFlightID: data.faFlightID,
                 originCity: data.originCity,

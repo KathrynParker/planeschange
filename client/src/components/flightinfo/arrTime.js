@@ -5,7 +5,7 @@ class ArrivalTime extends Component {
 
 	render() {
 		return (
-			<h4>Arrival Time: {this.props.actualarrivaltime}</h4>
+			<h4>Arrival Time: {this.props.estimatedarrivaltime}</h4>
 		)
 	}
 }
