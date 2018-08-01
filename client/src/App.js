@@ -10,7 +10,7 @@ class App extends Component {
         super(props);
         this.flightNumEntered = this.flightNumEntered.bind(this);
         this.state = {
-            flight: '',
+            flight: null,
             showFlightStatusPage: false,
         };
     }
@@ -19,14 +19,20 @@ class App extends Component {
         return (
         <div className="">
             <h1>Planes Change</h1>
-            <h3>Enter Flight Number to Begin</h3>
-            <form onSubmit={this.flightNumEntered}> 
-                <input className="flightNum" name="flightNum" placeholder="Flight Number"></input>
-                <button type="submit">Show Me</button>
-            </form>
-            <hr/>
-            <p>Log in to save info</p>
-            <Login></Login>
+            {this.state.flight ? (
+                <FlightInfo flight={this.state.flight} />
+            ) : (
+                <div>
+                    <h3>Enter Flight Number to Begin</h3>
+                    <form onSubmit={this.flightNumEntered}> 
+                        <input className="flightNum" name="flightNum" placeholder="Flight Number"></input>
+                        <button type="submit">Show Me</button>
+                    </form>
+                    <hr/>
+                    <p>Log in to save info</p>
+                    <Login></Login>
+                </div>
+            )}
         </div>
         );
     }
