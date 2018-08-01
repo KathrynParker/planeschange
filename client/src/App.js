@@ -10,7 +10,7 @@ class App extends Component {
         super(props);
         this.flightNumEntered = this.flightNumEntered.bind(this);
         this.state = {
-            flight: 'DL1234',
+            flight: '',
             showFlightStatusPage: false,
         };
     }
@@ -19,9 +19,11 @@ class App extends Component {
         return (
         <div className="">
             <h1>Planes Change</h1>
-            <h3>Enter Flight Info to Begin</h3>
-            <input placeholder="Flight Number"></input>
-            <button onClick={this.flightNumEntered}>Show Me</button>
+            <h3>Enter Flight Number to Begin</h3>
+            <form onSubmit={this.flightNumEntered}> 
+                <input className="flightNum" name="flightNum" placeholder="Flight Number"></input>
+                <button type="submit">Show Me</button>
+            </form>
             <hr/>
             <p>Log in to save info</p>
             <Login></Login>
@@ -29,14 +31,12 @@ class App extends Component {
         );
     }
 
-    flightNumEntered = () => {
-        axios({
-            method: 'get',
-            url: '/flightInfo'
-        })
-        .then(() => {
+    flightNumEntered = (event) => {
+        event.preventDefault();
+        axios.get(`/api/flightInfo/${event.target.flightNum.value}`)
+        .then((response) => {
             this.setState({
-            flight: FlightInfo,
+                flight: response.data,
             })
         })
         .catch((res) => {
