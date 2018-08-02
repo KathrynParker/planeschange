@@ -14,6 +14,7 @@ const favorites = require('./routes/api/favorites');
 const flightList = require('./routes/api/flightList');
 const hotels = require('./routes/api/hotels');
 const rentals = require('./routes/api/rentals');
+const gate = require('./routes/api/gate');
 
 dotenv.load();
 
@@ -41,7 +42,7 @@ app.use('/api/favorites', favorites);
 app.use('/api/flightList', flightList);
 app.use('/api/hotels', hotels);
 app.use('/api/rentals', rentals);
-
+app.use('/api/gate', gate);
 
 
 // catch 404 and forward to error handler

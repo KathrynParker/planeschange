@@ -6,7 +6,7 @@ router.get('/', (req, res, next) => {
     
     let baseURL = 'https://flightxml.flightaware.com/json/FlightXML2/';
     let faFlightID = data.faFlightID;
-    let getURL = baseURL + 'AirlineFlightInfo' + faFlightID;
+    let getURL = baseURL + 'AirlineFlightInfo' + '?faFlightID=' + faFlightID;
 
 
     axios.get(getURL, {
