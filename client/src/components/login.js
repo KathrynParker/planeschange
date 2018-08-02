@@ -31,7 +31,7 @@ class Login extends Component {
                                 <input name="registerUsername" type="text" placeholder="User Name" required />
                             </div>
                             <div className="field">
-                                <input name="registerPassword" type="password" placeholder="Password" required />
+                                <input name="registerPassword" type="text" placeholder="Password" required />
                             </div>
                             <button className="loginButton" type="submit">Register</button>
                         </form>
