@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 	function timeConverter(UNIX_timestamp){
 		let a = new Date(UNIX_timestamp * 1000);
-		let hour = a.getHours();
+		let hour = a.getHours(); // looks like this is EDT
 		let min = a.getMinutes();
 		let time = hour + ':' + min;
 		return time;
@@ -14,13 +14,10 @@ class ArrivalTime extends Component {
 
 	render() {
 
-		let convertedTime = this.props.estimatedarrivaltime;
-		console.log(this.props.estimatedarrivaltime);
-		timeConverter(convertedTime);
+		let convertedTime = timeConverter(this.props.estimatedarrivaltime);	
 
 		return (
-			// <h4>Arrival Time: {this.props.estimatedarrivaltime}</h4>
-			<h4>Arrival Time: {convertedTime}</h4>
+			<h4>Arrival Time: {convertedTime} EDT</h4>
 		)
 	}
 }
