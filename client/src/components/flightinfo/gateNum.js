@@ -5,7 +5,7 @@ class GateNumber extends Component {
 
 	render() {
 		return (
-			<h3>Gate: A 35</h3>
+			<h3>Gate: {this.props.gate_orig}</h3>
 			)
 	}
 }

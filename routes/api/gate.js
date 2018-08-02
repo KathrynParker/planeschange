@@ -2,11 +2,12 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 
-router.get('/:flight', (req, res, next) => {
+router.get('/', (req, res, next) => {
     
     let baseURL = 'https://flightxml.flightaware.com/json/FlightXML2/';
-    let userInput = req.params.flight
-    let getURL = baseURL + 'FlightInfoEx' + '?howmany=1&ident=' + userInput;
+    let faFlightID = data.faFlightID;
+    let getURL = baseURL + 'AirlineFlightInfo' + faFlightID;
+
 
     axios.get(getURL, {
         auth: {
@@ -14,15 +15,11 @@ router.get('/:flight', (req, res, next) => {
             password: process.env.FA_PASSWORD,
         },
     }).then((response) => {
-        const data = response.data.FlightInfoExResult.flights[0];
+        const data = response.data.AirlineFlightInfo;
+        console.log(data);
         res.json(
             {
-                filed_departuretime: data.filed_departuretime,
-                estimatedarrivaltime: data.estimatedarrivaltime,
-                faFlightID: data.faFlightID,
-                originCity: data.originCity,
-                destinationCity: data.destinationCity,
-                ident: data.ident
+                gate_orig: data.gate_orig,
             }
         );
     })
