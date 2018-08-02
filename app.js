@@ -7,6 +7,7 @@ const dotenv = require('dotenv');
 
 const apiRouter = require('./routes/api');
 const setupAuth = require('./auth');
+const apiMailRouter = require('./routes/api/mail');
 
 const flightInfo = require('./routes/api/flightInfo');
 const favorites = require('./routes/api/favorites');
@@ -33,6 +34,8 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 setupAuth(app);
 
 app.use('/api', apiRouter);
+app.use('/api/mail', apiMailRouter);
+
 app.use('/api/flightInfo', flightInfo);
 app.use('/api/favorites', favorites);
 app.use('/api/flightList', flightList);

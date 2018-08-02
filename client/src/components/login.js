@@ -22,35 +22,31 @@ class Login extends Component {
                     <button onClick={this.logout}>Log Out</button>
                 </div>
             ) : (
-                <div className="user-form">
-                    <button onClick={this.showSignupForm} disabled={this.state.signupFormVisible}>Register</button>
-                    <button onClick={this.showLoginForm} disabled={!this.state.signupFormVisible}>Login</button>
+                <aside className="aside aside-2">
+                    <button className="Login-tab" onClick={this.showSignupForm} disabled={this.state.signupFormVisible}>Login</button>
+                    <button className="Login-tab" onClick={this.showLoginForm} disabled={!this.state.signupFormVisible}>Register</button>
                     {this.state.signupFormVisible ? (
                         <form id="registerForm" onSubmit={this.register}>
-                            <h2>Register</h2>
-                            <div className="form-field">
-                                <label htmlFor="registerUsername">Username:</label>
-                                <input name="registerUsername" type="text" required />
+                            <div className="field">
+                                <input name="registerUsername" type="text" placeholder="User Name" required />
                             </div>
-                            <div className="form-field">
-                                <label htmlFor="registerPassword">Password:</label>
-                                <input name="registerPassword" type="password" required />
+                            <div className="field">
+                                <input name="registerPassword" type="password" placeholder="Password" required />
                             </div>
-                            <button className="Login-rounded-button" type="submit">Register</button>
+                            <button className="loginButton" type="submit">Register</button>
                         </form>
                     ) : (
                         <form id="loginForm" onSubmit={this.login}>
-                            <h2>Login</h2>
-                            <div className="form-field">
-                                <input className="Login-input-field" name="username" type="text" placeholder="User Name" required></input>
+                            <div className="field">
+                                <input name="username" type="text" placeholder="User Name" required />
                             </div>
-                            <div className="form-field">
-                                <input className="Login-input-field" name="password" type="text" placeholder="Password" required></input>
+                            <div className="field">
+                                <input name="password" type="text" placeholder="Password" required />
                             </div>
-                            <button className="Login-rounded-button" type="submit">Login</button>
+                            <button className="loginButton" type="submit">Login</button>
                         </form>
                     )}
-                </div>
+                </aside>
             )
             }
         </div>

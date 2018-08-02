@@ -10,15 +10,22 @@ import GateNumber from './gateNum';
 
 class FlightInfo extends Component {
 
+
 	render() {
 		return (
 			<div>
                 <FlightNum />
                 <GateNumber />
                 <FlightStatus />
-                <DepartureTime />
+                <DepartureTime filed_departuretime={this.props.flight.filed_departuretime} />
                 <BoardTime />
-                <Arrivaltime />
+                <Arrivaltime estimatedarrivaltime={this.props.flight.estimatedarrivaltime} />
+                <form id="emailForm" onSubmit={this.email}> 
+                    <p>Email your ETA!</p>
+                    <input placeholder="From email"></input>
+                    <input placeholder="To email"></input>
+                    <button type="submit">Send ETA</button>
+                </form>
             </div>
 			)
 	}

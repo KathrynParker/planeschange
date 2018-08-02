@@ -2,16 +2,11 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 
-
-router.get('/', (req, res, next) => {
-    res.json({ 'status': 'success' });
-});
-
-router.get('/flightInfo', (req, res, next) => {
+router.get('/:flight', (req, res, next) => {
     
     let baseURL = 'https://flightxml.flightaware.com/json/FlightXML2/';
-    let userInput = 'DAL1552'; //get from user input field, e.g. $('.search-bar').val();
-    let getURL = baseURL + 'FlightInfoEx' + '?ident=' + userInput + '&howmany=1';
+    let userInput = req.params.flight
+    let getURL = baseURL + 'FlightInfoEx' + '?howmany=1&ident=' + userInput;
 
     axios.get(getURL, {
         auth: {
@@ -19,30 +14,28 @@ router.get('/flightInfo', (req, res, next) => {
             password: process.env.FA_PASSWORD,
         },
     }).then((response) => {
-        console.log(response.data);
-    }).then((response) => {
+        // console.log(response.data.FlightInfoExResult.flights);
         // // whole original response
         // res.json(response.data);
         // select values from response
-        const data = response.data;
-        res.json({
-            flights: {
-                actualdeparturetime: data.actualdeparturetime,
-                actualarrivaltime: data.actualarrivaltime,
+        const data = response.data.FlightInfoExResult.flights[0];
+        res.json(
+            {
+                filed_departuretime: data.filed_departuretime,
                 estimatedarrivaltime: data.estimatedarrivaltime,
                 faFlightID: data.faFlightID,
                 originCity: data.originCity,
                 destinationCity: data.destinationCity
             }
-            });
-        })
-        .catch((err)=> {
-        console.log(err);
-        res.json({
-            'status': 'error',
-            'message': 'Failed to reach Flight Aware'
-        })
-        });
+        );
+    })
+    .catch((err)=> {
+    console.log(err);
+    res.json({
+        'status': 'error',
+        'message': 'Failed to reach Flight Aware'
+    })
+    });
 
 })
 

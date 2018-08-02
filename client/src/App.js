@@ -10,33 +10,45 @@ class App extends Component {
         super(props);
         this.flightNumEntered = this.flightNumEntered.bind(this);
         this.state = {
-            flight: 'DL1234',
+            flight: null,
             showFlightStatusPage: false,
         };
     }
 
     render() {
         return (
-        <div className="App-center-page">
-            <h1 className="App-page-title">Planes Change</h1>
-            <h3>Enter Flight Info to Begin</h3>
-            <input className="App-input-field" type="text" placeholder="Flight Number"></input>
-            <button  className="App-cta-button" onClick={this.flightNumEntered}>Show Me</button>
-            <hr/>
-            <p>Log in to save info</p>
-            <Login />
+
+        <div className="">
+            {this.state.flight ? (
+                <FlightInfo flight={this.state.flight} />
+            ) : (
+                <div className="wrapper">
+                    <header className="header"></header>
+                    <div className="main">
+                        <div className="logoBox"></div>
+                        <h4 className="flightSubhead">Enter Flight Number to Begin</h4>
+                        <form onSubmit={this.flightNumEntered}>
+                            <div className="field">
+                                <input type="text" name="flightNum" placeholder="ex. DL8996"></input>
+                                <button type="submit">Show Me</button>
+                            </div>
+                        </form>
+                        <h5 className="loginSubhead">Log in to save info</h5>
+                        <Login></Login>
+                    </div>
+                    <footer className="footer"></footer>
+                </div>
+            )}
         </div>
         );
     }
 
-    flightNumEntered = () => {
-        axios({
-            method: 'get',
-            url: '/flightInfo'
-        })
-        .then(() => {
+    flightNumEntered = (event) => {
+        event.preventDefault();
+        axios.get(`/api/flightInfo/${event.target.flightNum.value}`)
+        .then((response) => {
             this.setState({
-            flight: FlightInfo,
+                flight: response.data,
             })
         })
         .catch((res) => {
