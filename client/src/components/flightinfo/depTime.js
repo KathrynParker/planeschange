@@ -1,13 +1,26 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
 
-class DepartureTime extends Component {
+
+	function timeConverter(UNIX_timestamp){
+		let a = new Date(UNIX_timestamp * 1000);
+		let hour = a.getHours(); // looks like this is EDT
+		let min = a.getMinutes();
+		let time = hour + ':' + min;
+		return time;
+	}
+
+
+class ArrivalTime extends Component {
 
 	render() {
+
+		let convertedTime = timeConverter(this.props.filed_departuretime);	
+
 		return (
-			<h4>Departure Time: {this.props.filed_departuretime}</h4>
-			)
+			<h4>Departure Time: {convertedTime} EDT</h4>
+		)
 	}
 }
 
-export default DepartureTime;
+
+export default ArrivalTime;

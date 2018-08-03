@@ -14,10 +14,6 @@ router.get('/:flight', (req, res, next) => {
             password: process.env.FA_PASSWORD,
         },
     }).then((response) => {
-        // console.log(response.data.FlightInfoExResult.flights);
-        // // whole original response
-        // res.json(response.data);
-        // select values from response
         const data = response.data.FlightInfoExResult.flights[0];
         res.json(
             {
@@ -25,7 +21,8 @@ router.get('/:flight', (req, res, next) => {
                 estimatedarrivaltime: data.estimatedarrivaltime,
                 faFlightID: data.faFlightID,
                 originCity: data.originCity,
-                destinationCity: data.destinationCity
+                destinationCity: data.destinationCity,
+                ident: data.ident
             }
         );
     })
