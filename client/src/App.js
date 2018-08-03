@@ -17,20 +17,26 @@ class App extends Component {
 
     render() {
         return (
+
         <div className="">
-            <h1>Planes Change</h1>
             {this.state.flight ? (
                 <FlightInfo flight={this.state.flight} />
             ) : (
-                <div>
-                    <h3>Enter Flight Number to Begin</h3>
-                    <form onSubmit={this.flightNumEntered}> 
-                        <input className="flightNum" name="flightNum" placeholder="Flight Number"></input>
-                        <button type="submit">Show Me</button>
-                    </form>
-                    <hr/>
-                    <p>Log in to save info</p>
-                    <Login></Login>
+                <div className="wrapper">
+                    <header className="header"></header>
+                    <div className="main">
+                        <div className="logoBox"></div>
+                        <h4 className="flightSubhead">Enter Flight Number to Begin</h4>
+                        <form onSubmit={this.flightNumEntered}>
+                            <div className="field">
+                                <input type="text" name="flightNum" placeholder="ex. DL8996"></input>
+                                <button type="submit">Show Me</button>
+                            </div>
+                        </form>
+                        <h5 className="loginSubhead">Log in to save info</h5>
+                        <Login></Login>
+                    </div>
+                    <footer className="footer"></footer>
                 </div>
             )}
         </div>

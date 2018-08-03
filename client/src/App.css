@@ -1,28 +1,160 @@
-.App {
+html, body {
+  margin:0;
+  padding:0;
+  height:100%;
+  font-family: 'Roboto', sans-serif;
+  color: #2B67AC;
+}
+
+body{
   text-align: center;
+  text-align: -moz-center;
+  text-align: -webkit-center;
+  background-image: linear-gradient(to right bottom, #2b67ac, #5a89c1, #85abd6, #b2ceea, #e1f1ff);
+  padding: 2em;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  max-width: 1200px;
+  min-width: 425px;
+  box-shadow:0 2px 15px #777;
+  border-radius: 20px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
+.wrapper > * {
+  padding: 10px;
+  flex: 1 100%;
+}
+
+.header {
+  background: white;
+  border-radius: 20px 20px 0 0 ;
+}
+
+.main {
+  text-align: center;
+  background: #B4DFFF;
   padding: 20px;
-  color: white;
+  min-height: 225px;
 }
 
-.App-title {
-  font-size: 1.5em;
+.aside-2 {
+  background: #B4DFFF;
 }
 
-.App-intro {
-  font-size: large;
+.Login-tab {
+  width: 47%;
+  height: 52px;
+  margin-top: 5%;
+  padding: 14px 28px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.0);
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: 200;
+  cursor: pointer;
+  text-align: center;
+  border-bottom: solid 9px #ffffff;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.disabled {
+  width: 47%;
+  margin-top: 5%;
+  margin-left: 2px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.0);
+  padding: 14px 28px;
+  font-size: 1.2em;
+  font-weight: 200;
+  cursor: pointer;
+  text-align: center;
+  height: 52px;
+  border-bottom: solid 9px rgba(255, 255, 255, 0.4);
+  color: rgba(247, 12, 12, 0.4);
+}
+
+.loginButton {
+  display: inline;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #2B67AC;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  margin: 20px;
+  font-weight: 300;
+}
+
+.field {
+  height: 52px;
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.field>input[type=text],
+.field>button {
+  display:block;
+  background-color: rgba(255, 255, 255, 0.3);
+  font-size: 1.2em;
+  font-weight: 300;
+}
+
+.field>input[type=text] {
+  flex:1;
+  padding:0.6em;
+  border:0.2em ;
+}
+
+.field>button {
+  padding: 0.6em 0.8em;
+  background-color: #2B67AC;
+  color: #ffffff;
+  border: none;
+  font-weight: 100;
+}
+
+.field>button:hover {
+  cursor: pointer;
+}
+
+.flightSubhead {
+  font-weight: 200;
+  margin-bottom: 14px;
+  margin-top: 10%;
+}
+
+.loginSubhead {
+  font-weight: 200;
+}
+
+.footer {
+  background: white;
+  border-radius: 0 0 20px 20px;
+}
+
+@media all and (min-width: 600px) {
+  .aside { flex: 1 auto; }
+}
+
+@media all and (min-width: 900px) {
+  .main    { flex: 3 0px; border-right: solid 1px #ffffff;}
+  .aside-1 { order: 1; }
+  .main    { order: 2; }
+  .aside-2 { order: 3; }
+  .footer  { order: 4; }
+}
+
+.logoBox {
+  width: 120px;
+  height: 120px;
+  background-color: #2B67AC;
+  margin-left: auto;
+  margin-right: auto;
 }
