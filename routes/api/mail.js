@@ -22,10 +22,10 @@ transporter.use('compile', hbs({
 
 router.post('/', (req, res, next) => {
     transporter.sendMail({
-        from: `"${req.body.fromName}" <${req.body.fromEmail}>`, // sender address
-        to: req.body.toEmail, // list of receivers
-        subject: `Hey ${req.body.toName}, check this out`, // Subject line
-        text: 'Hello world?', // plain text body
+        from: `<${req.body.fromEmail}>`, // sender address
+        to: `<${req.body.toEmail}>`, // list of receivers
+        subject: `My Arrival Time`, // Subject line
+        text: "I'm on my way", // plain text body
         template: 'notification',
         context: {
             ...req.body
