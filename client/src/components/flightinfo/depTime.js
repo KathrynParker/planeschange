@@ -1,26 +1,31 @@
 import React, { Component } from 'react';
 
 
-	function timeConverter(UNIX_timestamp){
-		let a = new Date(UNIX_timestamp * 1000);
-		let hour = a.getHours(); // looks like this is EDT
-		let min = a.getMinutes();
-		let time = hour + ':' + min;
-		return time;
+function timeConverter(UNIX_timestamp){
+	let a = new Date(UNIX_timestamp * 1000);
+	let hour = a.getHours(); // looks like this is EDT
+	let min = a.getMinutes();
+	let time;
+
+	if (hour > 12) {
+		return time = (hour - 12) + ':' + min + ' PM EDT';
+	} else {
+		return time = hour + ':' + min + ' AM EDT';
 	}
+}
 
 
-class ArrivalTime extends Component {
+class DepartureTime extends Component {
 
 	render() {
 
 		let convertedTime = timeConverter(this.props.filed_departuretime);	
 
 		return (
-			<h4>Departure Time: {convertedTime} EDT</h4>
+			<h4>Departure Time: {convertedTime}</h4>
 		)
 	}
 }
 
 
-export default ArrivalTime;
+export default DepartureTime;

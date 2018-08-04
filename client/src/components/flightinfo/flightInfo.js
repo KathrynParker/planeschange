@@ -34,7 +34,7 @@ class FlightInfo extends Component {
                 <GateNumber faFlightID={this.props.flight.faFlightID} />
                 <FlightStatus />
                 <DepartureTime filed_departuretime={this.props.flight.filed_departuretime} />
-                <BoardTime />
+                <BoardTime filed_departuretime={this.props.flight.filed_departuretime}/>
                 <Arrivaltime estimatedarrivaltime={this.props.flight.estimatedarrivaltime} />
                 <form id="emailForm" onSubmit={this.email.bind(this)}> 
                     <p>Email your ETA!</p>
