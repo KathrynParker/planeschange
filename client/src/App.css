@@ -150,9 +150,13 @@ body{
   .footer  { order: 4; }
 }
 
+
+.logoPNG img {
+  width: 200px;
+}
+
 .logoBox {
-  width:200px;
-  height: 200px;
+  width: 50px;
   margin-top: 30px;
   margin-bottom: -20px;
   margin-left: auto;
