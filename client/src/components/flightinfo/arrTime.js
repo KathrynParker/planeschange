@@ -5,9 +5,15 @@ import React, { Component } from 'react';
 		let a = new Date(UNIX_timestamp * 1000);
 		let hour = a.getHours(); // looks like this is EDT
 		let min = a.getMinutes();
-		let time = hour + ':' + min;
-		return time;
+		let time;
+
+		if (hour > 12) {
+			return time = (hour - 12) + ':' + min + ' PM EDT';
+		} else if (hour === 0) {
+			return time = 12 + ':' + min + ' AM EDT';
+		}
 	}
+
 
 
 class ArrivalTime extends Component {
@@ -17,7 +23,7 @@ class ArrivalTime extends Component {
 		let convertedTime = timeConverter(this.props.estimatedarrivaltime);	
 
 		return (
-			<h4>Arrival Time: {convertedTime} EDT</h4>
+			<h4>Arrival Time: {convertedTime}</h4>
 		)
 	}
 }
