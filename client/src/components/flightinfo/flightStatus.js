@@ -5,7 +5,7 @@ class FlightStatus extends Component {
 
 	render() {
 		return (
-			<h2>ON TIME</h2>
+			<h2 className="flightStatus">ON TIME</h2>
 			)
 	}
 }

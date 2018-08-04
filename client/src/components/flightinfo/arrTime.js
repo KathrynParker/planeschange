@@ -20,10 +20,10 @@ class ArrivalTime extends Component {
 
 	render() {
 
-		let convertedTime = timeConverter(this.props.estimatedarrivaltime);	
+		let convertedTime = timeConverter(this.props.estimatedarrivaltime);
 
 		return (
-			<h4>Arrival Time: {convertedTime}</h4>
+			<h4 className="times">Arrival Time: {convertedTime}</h4>
 		)
 	}
 }
