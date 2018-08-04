@@ -57,7 +57,7 @@ body{
   font-weight: 200;
   cursor: pointer;
   text-align: center;
-  border-bottom: solid 9px #ffffff;
+  border-bottom: solid 5px #ffffff;
 }
 
 .disabled {
@@ -127,7 +127,6 @@ body{
 .flightSubhead {
   font-weight: 200;
   margin-bottom: 14px;
-  margin-top: 10%;
 }
 
 .loginSubhead {
@@ -152,9 +151,21 @@ body{
 }
 
 .logoBox {
-  width: 120px;
-  height: 120px;
-  background-color: #2B67AC;
+  width:200px;
+  height: 200px;
+  margin-top: 30px;
+  margin-bottom: -20px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.markBox {
+  width:150px;
+  height: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.markTicket {
+  box-shadow:0 2px 15px #777;
 }

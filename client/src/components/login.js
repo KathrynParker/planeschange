@@ -18,8 +18,8 @@ class Login extends Component {
         <div className="login-form">
             {this.state.user ? (
                 <div className="user">
-                    <span className="username">User: {this.state.user.username}</span>
-                    <button onClick={this.logout}>Log Out</button>
+                    <span className="username">Hope you have a safe journey {this.state.user.username}</span>
+                    <button className="loginButton" onClick={this.logout}>Log Out</button>
                 </div>
             ) : (
                 <aside className="aside aside-2">
@@ -52,16 +52,19 @@ class Login extends Component {
         </div>
         );
     }
+
     showLoginForm = (event) => {
         this.setState({
             signupFormVisible: false,
         })
     }
+
     showSignupForm = (event) => {
         this.setState({
             signupFormVisible: true,
         })
     }
+
     register = (event) => {
         event.preventDefault();
         axios({
@@ -72,17 +75,15 @@ class Login extends Component {
                 password: event.target.registerPassword.value,
             }
         })
-        .then((res) => {
-            this.setState({
-                user: res.data.user,
-                showSignupForm: false,
+            .then((res) => {
+                this.showLoginForm();
+                console.log(res);
             })
-            console.log(res);
-        })
             .catch((res) => {
                 console.log(res);
             });
     }
+
     login = (event) => {
         event.preventDefault();
         axios({
@@ -100,10 +101,15 @@ class Login extends Component {
             })
             console.log(res);
         })
+        .then((res) => {
+            this.showLoginForm();
+            console.log(res);
+        })
         .catch((res) => {
             console.log(res);
         });
     }
+
     logout = () => {
         axios({
             method: 'get',
@@ -119,4 +125,5 @@ class Login extends Component {
         });
     }
 }
+
 export default Login;

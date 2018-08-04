@@ -5,6 +5,7 @@ body {
 }
 
 button[disabled] {
-  color: grey;
+  color: rgba(255, 255, 255, .7);
   cursor: not-allowed;
+  border-bottom: solid 5px rgba(255, 255, 255, .3);
 }

@@ -3,6 +3,9 @@ import './App.css';
 import Login from './components/login';
 import FlightInfo from './components/flightinfo/flightInfo';
 import axios from 'axios';
+import logo_wht from './logo_wht.svg';
+import logo3 from './logo3.svg';
+import mark2 from './mark2.svg';
 
 class App extends Component {
 
@@ -25,7 +28,7 @@ class App extends Component {
                 <div className="wrapper">
                     <header className="header"></header>
                     <div className="main">
-                        <div className="logoBox"></div>
+                        <div className="logoBox"><img src={logo3} alt="logo" /></div>
                         <h4 className="flightSubhead">Enter Flight Number to Begin</h4>
                         <form onSubmit={this.flightNumEntered}>
                             <div className="field">
