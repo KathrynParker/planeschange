@@ -19,10 +19,10 @@ class DepartureTime extends Component {
 
 	render() {
 
-		let convertedTime = timeConverter(this.props.filed_departuretime);	
+		let convertedTime = timeConverter(this.props.filed_departuretime);
 
 		return (
-			<h4>Departure Time: {convertedTime}</h4>
+			<h4 className="times">Departure Time: {convertedTime}</h4>
 		)
 	}
 }

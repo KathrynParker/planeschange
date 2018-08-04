@@ -169,3 +169,64 @@ body{
 .markTicket {
   box-shadow:0 2px 15px #777;
 }
+
+button {
+  padding: 0.6em 0.8em;
+  background-color: #2B67AC;
+  color: #ffffff;
+  border: none;
+  font-weight: 100;
+}
+
+.ghostInput {
+  height: 52px;
+  border: none;
+  display: inline-flex;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: 3%;
+  margin-right: 3%;
+  background-color: rgba(255, 255, 255, 0.3);
+  font-size: 1.2em;
+  font-weight: 300;
+  padding-left: 10px;
+}
+
+.primaryButton {
+  height: 52px;
+  border: none;
+  background-color: #2B67AC;
+  font-size: 1.2em;
+  font-weight: 300;
+  padding-left: 10px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.emailSubhead {
+  font-weight: 300;
+  margin-bottom: -0px;
+  font-size: 1.25em;
+}
+
+.gateNum {
+  font-size: 1.75em;
+  font-weight: 400;
+  margin: 0;
+}
+
+.flightNum {
+  font-size: 2em;
+  margin: 30px 0 10px 0;
+}
+
+.flightStatus {
+  font-size: 5em;
+  margin: 0;
+}
+
+.times {
+  font-size: 1.75em;
+  margin: 0 0 10px 0;
+  font-weight: 400;
+}

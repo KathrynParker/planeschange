@@ -22,10 +22,10 @@ class BoardTime extends Component {
 
 	render() {
 
-		let boardingTime = timeConverter(this.props.filed_departuretime);	
+		let boardingTime = timeConverter(this.props.filed_departuretime);
 
 		return (
-			<h4>Boarding In: {boardingTime}</h4>
+			<h4 class="times">Boarding In: {boardingTime}</h4>
 		)
 	}
 }

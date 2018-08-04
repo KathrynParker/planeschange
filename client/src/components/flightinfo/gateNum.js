@@ -3,15 +3,15 @@ import Axios from '../../../../node_modules/axios';
 
 
 class GateNumber extends Component {
-	
+
 	constructor() {
         super();
         this.state = {
             gate_orig: '',
         }
-    }   
-	
-	
+    }
+
+
 	componentWillMount() {
 		Axios.get(`/api/gate/${this.props.faFlightID}`)
 		.then((response) => {
@@ -23,7 +23,9 @@ class GateNumber extends Component {
 
 	render() {
 		return (
-			<h3>Gate: {this.state.gate_orig}</h3>
+			<div className="inLine">
+			<h3 className="gateNum">Gate: {this.state.gate_orig}</h3>
+			</div>
 			)
 	}
 }
