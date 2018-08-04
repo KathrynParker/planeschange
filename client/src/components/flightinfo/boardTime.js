@@ -9,8 +9,8 @@ function timeConverter(UNIX_timestamp){
 
 	if (hour > 12) {
 		return time = (hour - 12) + ':' + min + ' PM EDT';
-	} else {
-		return time = hour + ':' + min + ' AM EDT';
+	} else if (min === 12) {
+		return time = hour + ':' + 12 + ' AM EDT';
 	}
 }
 
@@ -18,10 +18,10 @@ class BoardTime extends Component {
 
 	render() {
 
-		let convertedTime = timeConverter(this.props.filed_departuretime);	
+		let boardingTime = timeConverter(this.props.filed_departuretime);	
 
 		return (
-			<h4>Boarding In: {convertedTime}</h4>
+			<h4>Boarding In: {boardingTime}</h4>
 		)
 	}
 }

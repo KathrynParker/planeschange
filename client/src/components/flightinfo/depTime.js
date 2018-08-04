@@ -9,8 +9,8 @@ function timeConverter(UNIX_timestamp){
 
 	if (hour > 12) {
 		return time = (hour - 12) + ':' + min + ' PM EDT';
-	} else {
-		return time = hour + ':' + min + ' AM EDT';
+	} else if (hour === 0) {
+		return time = 12 + ':' + min + ' AM EDT';
 	}
 }
 
