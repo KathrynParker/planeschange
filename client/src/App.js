@@ -3,9 +3,6 @@ import './App.css';
 import Login from './components/login';
 import FlightInfo from './components/flightinfo/flightInfo';
 import axios from 'axios';
-import logo_wht from './logo_wht.svg';
-import logo3 from './logo3.svg';
-import mark2 from './mark2.svg';
 import logo33x from './logo3-3x.png';
 
 class App extends Component {
