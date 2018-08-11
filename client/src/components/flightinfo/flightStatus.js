@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
 
 class FlightStatus extends Component {
 
+	
+
 	render() {
 		return (
-			<h2 className="flightStatus">ON TIME</h2>
+			<h2 className="flightStatus">Status: {this.props.status}</h2>
 			)
 	}
 }

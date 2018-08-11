@@ -51,6 +51,7 @@ class App extends Component {
         event.preventDefault();
         axios.get(`/api/flightInfo/${event.target.flightNum.value}`)
         .then((response) => {
+            console.log(response.data);
             this.setState({
                 flight: response.data,
             })
