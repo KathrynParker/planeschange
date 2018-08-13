@@ -29,7 +29,7 @@ class FlightInfo extends Component {
 
 	render() {
 		return (
-			<div className="wrapper">
+			<div className="ticket">
                 <Row horizontal="center" className="header" />
                     <Column className="main" horizontal="center">
                     <FlightNum ident={this.props.flight.ident}/>
