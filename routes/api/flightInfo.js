@@ -3,7 +3,7 @@ const router = express.Router();
 const axios = require('axios');
 
 router.get('/:flight', (req, res, next) => {
-   
+
     // Url for the Flight Aware API
     let faURL = 'https://flightxml.flightaware.com/json/FlightXML2/';
     let userInput = req.params.flight
@@ -20,9 +20,8 @@ router.get('/:flight', (req, res, next) => {
 	let fsURL = 'https://api.flightstats.com/flex/flightstatus/rest/v2/json/flight/status/';
     let getStatusURL = fsURL + carrier + '/' + flightnum + '/arr/' + year + '/' + month + '/' + date + `?appId=${process.env.FLIGHTSTATS_ID}&appKey=${process.env.FLIGHTSTATS_KEY}&utc=false`;
 
-    console.log('bananapancake');
-    console.log(getStatusURL);
-
+    
+    // Defining the promises
     let flightPromise = axios.get(getURL, {
         auth: {
             username: process.env.FA_USERNAME,
@@ -32,6 +31,8 @@ router.get('/:flight', (req, res, next) => {
     
     let statusPromise = axios.get(getStatusURL);
 
+
+    // Calling both APIs
     Promise.all( [flightPromise, statusPromise ]).then( responses => {
         let flight = responses[0].data.FlightInfoExResult.flights[0];
         let status = responses[1].data.flightStatuses;
