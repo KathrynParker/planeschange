@@ -15,14 +15,13 @@ router.get('/:flight', (req, res, next) => {
 	let flightnum = fullFlightNum[1];
     let today = new Date();
     let year = today.getFullYear();
-    let month = today.getMonth();
-    let currentMonth = 8;
-    // let currentMonth = parseInt(month[0] + 1);
+    let month = today.getMonth() + 1;
 	let date = today.getDate();
 	let fsURL = 'https://api.flightstats.com/flex/flightstatus/rest/v2/json/flight/status/';
-    // let getStatusURL = fsURL + carrier + '/' + flightnum + '/arr/' + year + '/' + currentMonth + '/' + date + '?appId=`${process.env.FLIGHTSTATS_ID}`&appKey=`${process.env.FLIGHTSTATS_KEY}`&utc=false';
-    let getStatusURL = 'https://api.flightstats.com/flex/flightstatus/rest/v2/json/flight/status/DAL/1128/arr/2018/8/11?appId=fa5de2fc&appKey=dd95cfbf9785bd84b7e2c53abf7d7af0&utc=false';
+    let getStatusURL = fsURL + carrier + '/' + flightnum + '/arr/' + year + '/' + month + '/' + date + `?appId=${process.env.FLIGHTSTATS_ID}&appKey=${process.env.FLIGHTSTATS_KEY}&utc=false`;
 
+    console.log('bananapancake');
+    console.log(getStatusURL);
 
     let flightPromise = axios.get(getURL, {
         auth: {
