@@ -36,9 +36,6 @@ router.get('/:flight', (req, res, next) => {
     Promise.all( [flightPromise, statusPromise ]).then( responses => {
         let flight = responses[0].data.FlightInfoExResult.flights[0];
         let status = responses[1].data.flightStatuses;
-        console.log('bananapancake');
-        console.log(flight);
-        console.log(status);
 
         res.json({
             filed_departuretime: flight.filed_departuretime,
