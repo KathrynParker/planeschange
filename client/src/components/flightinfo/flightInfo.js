@@ -33,7 +33,7 @@ class FlightInfo extends Component {
                 
                 <div className="wrapper">
                     <Row horizontal="center" className="header" />
-                        <Column className="main" horizontal="center">
+                        <Column className="main" horizontal="center" />
                             <FlightNum ident={this.props.flight.ident}/>
                             <GateNumber faFlightID={this.props.flight.faFlightID} />
                             <FlightStatus status={this.props.flight.status} />
@@ -41,23 +41,23 @@ class FlightInfo extends Component {
                             <Arrivaltime estimatedarrivaltime={this.props.flight.estimatedarrivaltime} />
                             <form id="emailForm" onSubmit={this.email.bind(this)}>
                                 <div className="">
-                                <h5 className="emailSubhead">Email your ETA!</h5>
+                                    <h5 className="emailSubhead">Email your ETA!</h5>
+                                </div>
                                 <div>
-                                        <input className="ghostInput" type="text" name="fromEmail" placeholder="From email"></input>
-                                        </div>
-                                        <div>
-                                        <input className="ghostInput" type="text" name="toEmail" placeholder="To email"></input>
-                                        </div>
+                                    <input className="ghostInput" type="text" name="fromEmail" placeholder="From email"></input>
+                                </div>
+                                <div>
+                                    <input className="ghostInput" type="text" name="toEmail" placeholder="To email"></input>
+                                </div>
+                                <div>
                                     <button className="primaryButton" type="submit">Send ETA</button>
                                 </div>
-
-                            <button className="primaryButton" type="submit">Send ETA</button>
-                        </div>
-                    </form>
+                            </form>
+                    
+                    <div>        
                     <a href="https://planeschange.herokuapp.com/">Enter Another Flight</a>
                     </div>
-                <div horizontal="center" className="footer" />
-
+            
                 </div>
                     
 
