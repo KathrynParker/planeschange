@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Hero, Column, Row } from "simple-flexbox";
 
+
 import Arrivaltime from './arrTime.js';
-import BoardTime from './boardTime.js';
 import DepartureTime from './depTime.js';
 import FlightNum from './flightNum';
 import FlightStatus from './flightStatus';
@@ -29,32 +29,39 @@ class FlightInfo extends Component {
 
 	render() {
 		return (
-			<div className="ticket">
-                <div horizontal="center" className="header" />
-                    <div className="main" horizontal="center">
-                    <FlightNum ident={this.props.flight.ident}/>
-                    <GateNumber faFlightID={this.props.flight.faFlightID} />
-                    <FlightStatus />
-                    <DepartureTime filed_departuretime={this.props.flight.filed_departuretime} />
-                    <BoardTime filed_departuretime={this.props.flight.filed_departuretime}/>
-                    <Arrivaltime estimatedarrivaltime={this.props.flight.estimatedarrivaltime} />
-                    <form id="emailForm" onSubmit={this.email.bind(this)}>
-                        <div className="">
-                        <h5 className="emailSubhead">Email your ETA!</h5>
-                        <div>
-                                <input className="ghostInput" type="text" name="fromEmail" placeholder="From email"></input>
-                                </div>
+			<div>
+                
+                <div className="wrapper">
+                    <Row horizontal="center" className="header" />
+                        <Column className="main" horizontal="center">
+                            <FlightNum ident={this.props.flight.ident}/>
+                            <GateNumber faFlightID={this.props.flight.faFlightID} />
+                            <FlightStatus status={this.props.flight.status} />
+                            <DepartureTime filed_departuretime={this.props.flight.filed_departuretime} />
+                            <Arrivaltime estimatedarrivaltime={this.props.flight.estimatedarrivaltime} />
+                            <form id="emailForm" onSubmit={this.email.bind(this)}>
+                                <div className="">
+                                <h5 className="emailSubhead">Email your ETA!</h5>
                                 <div>
-                                <input className="ghostInput" type="text" name="toEmail" placeholder="To email"></input>
+                                        <input className="ghostInput" type="text" name="fromEmail" placeholder="From email"></input>
+                                        </div>
+                                        <div>
+                                        <input className="ghostInput" type="text" name="toEmail" placeholder="To email"></input>
+                                        </div>
+                                    <button className="primaryButton" type="submit">Send ETA</button>
                                 </div>
+
                             <button className="primaryButton" type="submit">Send ETA</button>
                         </div>
                     </form>
                     <a href="https://planeschange.herokuapp.com/">Enter Another Flight</a>
                     </div>
                 <div horizontal="center" className="footer" />
-                </div>
 
+                </div>
+                    
+
+            </div>
 
 			)
 	}
