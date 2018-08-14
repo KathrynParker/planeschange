@@ -30,8 +30,8 @@ class FlightInfo extends Component {
 	render() {
 		return (
 			<div className="ticket">
-                <Row horizontal="center" className="header" />
-                    <Column className="main" horizontal="center">
+                <div horizontal="center" className="header" />
+                    <div className="main" horizontal="center">
                     <FlightNum ident={this.props.flight.ident}/>
                     <GateNumber faFlightID={this.props.flight.faFlightID} />
                     <FlightStatus />
@@ -51,8 +51,8 @@ class FlightInfo extends Component {
                         </div>
                     </form>
                     <a href="https://planeschange.herokuapp.com/">Enter Another Flight</a>
-                    </Column>
-                <Row horizontal="center" className="footer" />
+                    </div>
+                <div horizontal="center" className="footer" />
                 </div>
 
 
