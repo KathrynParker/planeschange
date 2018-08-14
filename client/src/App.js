@@ -3,9 +3,6 @@ import './App.css';
 import Login from './components/login';
 import FlightInfo from './components/flightinfo/flightInfo';
 import axios from 'axios';
-import logo_wht from './logo_wht.svg';
-import logo3 from './logo3.svg';
-import mark2 from './mark2.svg';
 import logo33x from './logo3-3x.png';
 
 class App extends Component {
@@ -26,22 +23,24 @@ class App extends Component {
             {this.state.flight ? (
                 <FlightInfo flight={this.state.flight} />
             ) : (
-                <div className="wrapper">
-                    <header className="header"></header>
-                    <div className="main">
-                        <div className="logoPNG"><img src={logo33x} alt="logo" /></div>
-                        <h4 className="flightSubhead">Enter Flight Number to Begin</h4>
-                        <form onSubmit={this.flightNumEntered}>
-                            <div className="field">
-                                <input type="text" name="flightNum" placeholder="ex. DL8996"></input>
-                                <button type="submit">Show Me</button>
+                <div>
+                    <div class="ticket">
+                        <div class="infoBox">
+                        <div className="">
+                            <div className="logoPNG"><img src={logo33x} alt="logo" /></div>
+                                <form onSubmit={this.flightNumEntered}>
+                                <div className="field">
+                                    <input type="text" name="flightNum" placeholder="ex. DL8996"></input>
+                                    <button type="submit">Show Me</button>
+                                </div>
+                                </form>
+                                <h5 className="loginSubhead">Log in to save info</h5>
                             </div>
-                        </form>
-                        <h5 className="loginSubhead">Log in to save info</h5>
-                        <Login></Login>
+                        </div>
+                        <div class="loginBox"><Login></Login></div>
                     </div>
-                    <footer className="footer"></footer>
                 </div>
+
             )}
         </div>
         );

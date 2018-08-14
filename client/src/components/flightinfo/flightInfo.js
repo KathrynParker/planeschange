@@ -50,10 +50,14 @@ class FlightInfo extends Component {
                                         </div>
                                     <button className="primaryButton" type="submit">Send ETA</button>
                                 </div>
-                            </form>
-                            <a href="https://planeschange.herokuapp.com/">Enter Another Flight</a>
-                        </Column>
-                        <Row horizontal="center" className="footer" />
+
+                            <button className="primaryButton" type="submit">Send ETA</button>
+                        </div>
+                    </form>
+                    <a href="https://planeschange.herokuapp.com/">Enter Another Flight</a>
+                    </div>
+                <div horizontal="center" className="footer" />
+
                 </div>
                     
 

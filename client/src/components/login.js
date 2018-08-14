@@ -21,27 +21,19 @@ class Login extends Component {
                     <button className="loginButton" onClick={this.logout}>Log Out</button>
                 </div>
             ) : (
-                <aside className="aside aside-2">
-                    <button className="Login-tab" onClick={this.showSignupForm} disabled={this.state.signupFormVisible}>Login</button>
-                    <button className="Login-tab" onClick={this.showLoginForm} disabled={!this.state.signupFormVisible}>Register</button>
+                <aside className="">
+                    <button className="loginTab" onClick={this.showSignupForm} disabled={this.state.signupFormVisible}>Login</button>
+                    <button className="loginTab" onClick={this.showLoginForm} disabled={!this.state.signupFormVisible}>Register</button>
                     {this.state.signupFormVisible ? (
                         <form id="registerForm" onSubmit={this.register}>
-                            <div className="field">
-                                <input name="registerUsername" type="text" placeholder="User Name" required />
-                            </div>
-                            <div className="field">
-                                <input name="registerPassword" type="text" placeholder="Password" required />
-                            </div>
+                            <div className="field"><input name="registerUsername" type="text" placeholder="User Name" required /></div>
+                            <div className="field"><input name="registerPassword" type="text" placeholder="Password" required /></div>
                             <button className="loginButton" type="submit">Register</button>
                         </form>
                     ) : (
                         <form id="loginForm" onSubmit={this.login}>
-                            <div className="field">
-                                <input name="username" type="text" placeholder="User Name" required />
-                            </div>
-                            <div className="field">
-                                <input name="password" type="text" placeholder="Password" required />
-                            </div>
+                            <div className="field"><input name="username" type="text" placeholder="User Name" required /></div>
+                            <div className="field"><input name="password" type="text" placeholder="Password" required /></div>
                             <button className="loginButton" type="submit">Login</button>
                         </form>
                     )}

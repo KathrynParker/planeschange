@@ -7,73 +7,97 @@ html, body {
 }
 
 body{
-  text-align: center;
-  text-align: -moz-center;
-  text-align: -webkit-center;
-  background-image: linear-gradient(to right bottom, #2b67ac, #5a89c1, #85abd6, #b2ceea, #e1f1ff);
-  padding: 2em;
+  text-align:center;
+  text-align:-moz-center;
+  text-align:-webkit-center;
 }
 
-.wrapper {
+body {
+  background: linear-gradient(270deg, #2b67ac, #5183CB, #72A1EC, #93C0FF, #B4DFFF);
+  background-size: 1000% 1000%;
+  -webkit-animation: gradient-cycle 60s ease infinite;
+  -moz-animation: gradient-cycle 60s ease infinite;
+  animation: gradient-cycle 60s ease infinite;
+  }
+
+@keyframes gradient-cycle {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+
+.ticket:before, .ticket:after{
+  content: '';
+  z-index: -1;
+  width: 200px;
+
+  position: absolute;
+  bottom: 1px;
+  left: 10px;
+  top: 80%;
+
+  box-shadow: 0 20px 15px #333;
+  transform: rotate(-3deg);
+}
+
+.ticket:after{
+  left:auto;
+  right:10px;
+  transform:rotate(3deg);
+}
+
+.ticket {
   display: flex;
   flex-flow: row wrap;
-  text-align: center;
-  max-width: 1200px;
-  min-width: 425px;
-  box-shadow:0 2px 15px #777;
+  background: #B4DFFF;
+  margin: 4em;
   border-radius: 20px;
+  position: relative;
+  border-top: solid white 20px;
+  border-bottom: solid white 20px;
 }
 
-.wrapper > * {
+.ticket > * {
   padding: 10px;
   flex: 1 100%;
 }
 
-.header {
-  background: white;
-  border-radius: 20px 20px 0 0 ;
-}
-
-.main {
+.infoBox {
   text-align: center;
-  background: #B4DFFF;
-  padding: 20px;
-  min-height: 225px;
 }
 
-.aside-2 {
-  background: #B4DFFF;
+.logoPNG img {
+  width: 200px;
 }
 
-.Login-tab {
-  width: 47%;
+.loginBox {
+  min-width: 150px;
+}
+
+@media all and (min-width: 600px) {
+  .loginBox { flex: 1 auto; }
+}
+
+@media all and (min-width: 800px) {
+  .infoBox    { flex: 3 0px; }
+  .infoBox    { order: 2; }
+  .loginBox { order: 3; }
+}
+
+.loginTab {
+  width: 40%;
   height: 52px;
   margin-top: 5%;
   padding: 14px 28px;
   border: none;
   background-color: rgba(255, 255, 255, 0.0);
-  color: #fff;
+  color: #2B67AC;
   font-size: 1.2em;
   font-weight: 200;
   cursor: pointer;
   text-align: center;
-  border-bottom: solid 5px #ffffff;
-}
-
-.disabled {
-  width: 47%;
-  margin-top: 5%;
-  margin-left: 2px;
-  border: none;
-  background-color: rgba(255, 255, 255, 0.0);
-  padding: 14px 28px;
-  font-size: 1.2em;
-  font-weight: 200;
-  cursor: pointer;
-  text-align: center;
-  height: 52px;
-  border-bottom: solid 9px rgba(255, 255, 255, 0.4);
-  color: rgba(247, 12, 12, 0.4);
+  border-bottom: solid 5px #2B67AC;
 }
 
 .loginButton {
@@ -87,6 +111,7 @@ body{
   text-align: center;
   margin: 20px;
   font-weight: 300;
+  min-width: 200px;
 }
 
 .field {
@@ -118,6 +143,7 @@ body{
   color: #ffffff;
   border: none;
   font-weight: 100;
+  min-width: 120px;
 }
 
 .field>button:hover {
@@ -133,26 +159,26 @@ body{
   font-weight: 200;
 }
 
-.footer {
+.footerStripe {
   background: white;
   border-radius: 0 0 20px 20px;
 }
 
 @media all and (min-width: 600px) {
-  .aside { flex: 1 auto; }
+  .loginForm { flex: 1 auto; }
 }
 
 @media all and (min-width: 900px) {
-  .main    { flex: 3 0px; border-right: solid 1px #ffffff;}
-  .aside-1 { order: 1; }
-  .main    { order: 2; }
+  .ticket    { flex: 3 0px; border-right: solid 1px #ffffff;}
+  .loginForm { order: 1; }
+  .ticket   { order: 2; }
   .aside-2 { order: 3; }
   .footer  { order: 4; }
 }
 
-
-.logoPNG img {
-  width: 200px;
+@media all and (min-width: 900px) {
+  .flightForm    { width: 70%; }
+  .loginForm    { width: 30%; margin-left: auto; margin-right: auto;}
 }
 
 .logoBox {
