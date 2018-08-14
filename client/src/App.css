@@ -234,3 +234,13 @@ button {
   margin: 0 0 10px 0;
   font-weight: 400;
 }
+
+/* bottom navigation */
+
+.bottomNav button{
+  background-color: #2B67AC;
+  color: #ffffff;
+  height: 52px;
+  margin: 8px;
+  padding: 10px;
+}
