@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Hero, Column, Row } from "simple-flexbox";
+import Header from '../header';
 
 
 import Arrivaltime from './arrTime.js';
@@ -30,7 +31,7 @@ class FlightInfo extends Component {
 	render() {
 		return (
 			<div>
-                
+                <Header />
                 <div className="wrapper">
                     <Row horizontal="center" className="header" />
                         <Column className="main" horizontal="center" />
@@ -39,28 +40,17 @@ class FlightInfo extends Component {
                             <FlightStatus status={this.props.flight.status} />
                             <DepartureTime filed_departuretime={this.props.flight.filed_departuretime} />
                             <Arrivaltime estimatedarrivaltime={this.props.flight.estimatedarrivaltime} />
+                        </Column>
                             <form id="emailForm" onSubmit={this.email.bind(this)}>
-                                <div className="">
-                                    <h5 className="emailSubhead">Email your ETA!</h5>
-                                </div>
-                                <div>
-                                    <input className="ghostInput" type="text" name="fromEmail" placeholder="From email"></input>
-                                </div>
-                                <div>
-                                    <input className="ghostInput" type="text" name="toEmail" placeholder="To email"></input>
-                                </div>
-                                <div>
-                                    <button className="primaryButton" type="submit">Send ETA</button>
-                                </div>
+                                <div><h5 className="emailSubhead">Email your ETA!</h5></div>
+                                <div><input className="ghostInput" type="text" name="fromEmail" placeholder="From email"></input></div>
+                                <div><input className="ghostInput" type="text" name="toEmail" placeholder="To email"></input></div>
+                                <div><button className="primaryButton" type="submit">Send ETA</button></div>
                             </form>
-                    
-                    <div>        
                     <a href="https://planeschange.herokuapp.com/">Enter Another Flight</a>
-                    </div>
-            
-                </div>
-                    
+                    <div horizontal="center" className="footer" />
 
+                </div>
             </div>
 
 			)

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
+import Header from './components/header';
 import Login from './components/login';
 import FlightInfo from './components/flightinfo/flightInfo';
 import axios from 'axios';
 import logo33x from './logo3-3x.png';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends Component {
 
@@ -19,11 +21,12 @@ class App extends Component {
     render() {
         return (
 
-        <div className="">
+        <div>
             {this.state.flight ? (
                 <FlightInfo flight={this.state.flight} />
             ) : (
                 <div>
+                    <Header />
                     <div class="ticket">
                         <div class="infoBox">
                         <div className="">
