@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
+
 
 class FlightList extends Component {
 
@@ -7,11 +7,11 @@ class FlightList extends Component {
 		return (
 			<div>
                 <div className='listDiv'>
-                    <h5>Departs at: 5:30 PM</h5>
-                    <h5>Arrives at: 8:30 PM</h5>
-                    <h5>$500</h5>
-                    <div>
-                        <h5>DL</h5>
+                    <h5>Departs at: {this.props.departs_at}</h5>
+                    <h5>Arrives at: {this.props.arrives_at}</h5>
+                    <h5>Price: {this.props.total_price}</h5>
+                    <div className='airlineDiv'>
+                        <h5>Airline: {this.props.airline}</h5>
                     </div>
                 </div>
             </div>

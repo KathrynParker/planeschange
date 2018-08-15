@@ -3,42 +3,30 @@ const router = express.Router();
 const Axios = require('axios');
 
 
-router.get('/', (req, res, next) => {
-    res.json({ 'status': 'success' });
-});
-
 router.get('/flightList', (req, res, next) => {
-    res.json({
-        'status': 'error',
-        'message': 'Not able to get list"'
-    })
-})
+    let origin = this.props.originCity;
+	let destination = this.props.destinationCity;
+	
+	let today = new Date();
+    let year = today.getFullYear();
+    let month = today.getMonth() + 1;
+	let date = today.getDate() + 1;
 
-// let origin = 
-// let destination = 
-// let departure_date = 
 
-router.get('/flightList', (req, res, next) => {
-    const url = `https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=${process.env.AM_KEY}&origin=BOS&destination=LON&departure_date=2018-08-05`
-    Axios.get(url)
+    let baseURL = `https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=${process.env.AM_KEY}&origin=`;
+
+    let fullURL = baseURL + origin + '&destination=' + destination + '&departure_date=' + year + '-' + month + '-' + date;
+    
+    Axios.get(fullURL)
         .then((response) => {
-        // // whole original response
-        // res.json(response.data);
-        // select values from response
-        const data = response.data;
+
+        const data = response[0].data.outbound;
         res.json({
-            itineraries: [{
-                outbound: {
-                    flights: [{
-                            departs_at: "2015-10-15T06:15",
-                            arrives_at: "2015-10-15T08:55",
-                            operating_airline: "AF",
-                            }]
-                    },
-                fare: {
-                    total_price: "528.30"
-                    }
-            }]
+        	departs_at: data.flights.departs_at,
+        	arrives_at: data.flights.arrives_at,
+        	airline: data.flights.operating_airline,
+        	total_price: data.fare.total_price
+            
         });
     })
     .catch((err)=> {

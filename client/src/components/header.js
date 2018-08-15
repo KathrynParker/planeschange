@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link, Route, Switch } from 'react-router-dom';
+import FlightList from './availflights/flightList';
 
 class Header extends Component {
   render() {
@@ -15,7 +17,7 @@ class Header extends Component {
                 <a href="/" className="nav-link">Hotels</a>
               </li>
               <li className="nav-item">
-                <a href="/" className="nav-link">Available Flights</a>
+                <Link to="/flightList" className="nav-link">Available Flights</Link>
               </li>
               <li className="nav-item">
                 <a href="/" className="nav-link">Rental Cars</a>
@@ -25,6 +27,9 @@ class Header extends Component {
               </li>
             </ul>
           </div>
+          <Switch>
+            <Route path="/flightList" component={FlightList} />
+          </Switch>
         </div>
       </nav>
     );
