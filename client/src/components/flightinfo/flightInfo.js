@@ -34,7 +34,7 @@ class FlightInfo extends Component {
                 <Header />
                 <div className="wrapper">
                     <Row horizontal="center" className="header" />
-                        <Column className="main" horizontal="center">
+                        <Column className="main" horizontal="center" />
                             <FlightNum ident={this.props.flight.ident}/>
                             <GateNumber faFlightID={this.props.flight.faFlightID} />
                             <FlightStatus status={this.props.flight.status} />
@@ -49,6 +49,7 @@ class FlightInfo extends Component {
                             </form>
                     <a href="https://planeschange.herokuapp.com/">Enter Another Flight</a>
                     <div horizontal="center" className="footer" />
+
                 </div>
             </div>
 
