@@ -3,7 +3,7 @@ const router = express.Router();
 const Axios = require('axios');
 
 
-router.get('/flightList', (req, res, next) => {
+router.get('/:item', (req, res, next) => {
     let origin = this.props.originCity;
 	let destination = this.props.destinationCity;
 	
@@ -16,6 +16,8 @@ router.get('/flightList', (req, res, next) => {
     let baseURL = `https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=${process.env.AM_KEY}&origin=`;
 
     let fullURL = baseURL + origin + '&destination=' + destination + '&departure_date=' + year + '-' + month + '-' + date;
+
+    console.log('Hey', fullURL);
     
     Axios.get(fullURL)
         .then((response) => {
