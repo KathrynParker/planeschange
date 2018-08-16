@@ -1,0 +1,42 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+  color: #2b67ac;
+}
+.searchField {
+  text-align: center;
+}
+
+.searchField > input[type="text"],
+.searchField > button {
+  background-color: rgba(255, 255, 255, 0.3);
+  font-size: 1.2em;
+  font-weight: 300;
+}
+
+.searchField > input[type="text"] {
+  padding: 0.6em;
+  border: 0.2em;
+}
+
+.searchField > button {
+  padding: 0.6em 0.8em;
+  background-color: #2b67ac;
+  color: #ffffff;
+  border: none;
+  font-weight: 100;
+  min-width: 120px;
+  margin-top: 10px;
+}
+
+.searchField > button:hover {
+  cursor: pointer;
+}
+
+.loginSubhead {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
