@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./searchForm.css";
 import axios from 'axios';
 import FlightInfo from './flightinfo/flightInfo';
+import logo33x from './images/logo33.png';
 
 class SearchForm extends Component {
 
@@ -25,6 +26,7 @@ class SearchForm extends Component {
                     <div>
                         <div>
                         <div>
+                                <div className="img-fluid logoPNG"><img src={logo33x} alt="logo" /></div>
                                 <form onSubmit={this.flightNumEntered}>
                                 <div className="searchField">
                                     <input type="text" name="flightNum" placeholder="ex. DL8996" />
