@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import "./login.css";
+
 
 
 class Login extends Component {
@@ -14,30 +16,54 @@ class Login extends Component {
     }
     render() {
         return (
-        <div className="login-form">
+        <div>
             {this.state.user ? (
-                <div className="user">
-                    <span className="username">Hope you have a safe journey {this.state.user.username}</span>
-                    <button className="loginButton" onClick={this.logout}>Log Out</button>
+                <div className="container formVertCenter">
+                    <div className="row text-center">
+                        <h5 className="text-center">Hope you have a safe journey,</h5>
+                    </div>
+                    <div>
+                        <h3 className="text-center text-primary mb-3">{this.state.user.username}</h3>
+                    </div>
+                    <button type="button" className="btn btn-block btn-light" onClick={this.logout}>Log Out</button>
                 </div>
             ) : (
-                <aside className="">
-                    <button className="loginTab" onClick={this.showSignupForm} disabled={this.state.signupFormVisible}>Login</button>
-                    <button className="loginTab" onClick={this.showLoginForm} disabled={!this.state.signupFormVisible}>Register</button>
-                    {this.state.signupFormVisible ? (
-                        <form id="registerForm" onSubmit={this.register}>
-                            <div className="field"><input name="registerUsername" type="text" placeholder="User Name" required /></div>
-                            <div className="field"><input name="registerPassword" type="text" placeholder="Password" required /></div>
-                            <button className="loginButton" type="submit">Register</button>
-                        </form>
+                <div className="container-fluid formVertCenter">
+                    <div className="btn-group btn-group-justified mb-4" role="group" aria-label="Basic example">
+                        <div className="btn-group">
+                        <button type="button" className="btn btn-light" onClick={this.showSignupForm} disabled={this.state.signupFormVisible}>Login</button>
+                        </div>
+                        <div className="btn-group">
+                        <button type="button" className="btn btn-light" onClick={this.showLoginForm} disabled={!this.state.signupFormVisible}>Register</button>
+                        </div>
+                    </div>
+
+                {this.state.signupFormVisible ? (
+                    <form id="registerForm" onSubmit={this.register}>
+                        <div className="form-row">
+                            <div className="col-12">
+                                <input name="registerUsername" type="text"  className="form-control" placeholder="User Name" required />
+                            </div>
+                            <div className="col-12">
+                                <input name="registerPassword" type="password" className="form-control" placeholder="Password" required />
+                            </div>
+                        </div>
+                        <button type="submit" className="btn btn-light btn-block mt-4">Register</button>
+                    </form>
                     ) : (
                         <form id="loginForm" onSubmit={this.login}>
-                            <div className="field"><input name="username" type="text" placeholder="User Name" required /></div>
-                            <div className="field"><input name="password" type="text" placeholder="Password" required /></div>
-                            <button className="loginButton" type="submit">Login</button>
+                            <div className="form-row">
+                                <div className="col-12">
+                                <input name="username" type="text"  className="form-control" placeholder="User Name" required />
+                                </div>
+                                <div className="col-12">
+                                <input name="password" type="password" className="form-control" placeholder="Password" required />
+                                </div>
+                                </div>
+                            <button type="submit" className="btn btn-light btn-block mt-4">Login</button>
                         </form>
                     )}
-                </aside>
+                </div>
             )
             }
         </div>

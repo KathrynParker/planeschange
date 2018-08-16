@@ -31,7 +31,6 @@ class FlightInfo extends Component {
 	render() {
 		return (
 			<div>
-                <Header />
                 <div className="wrapper">
                     <Row horizontal="center" className="header" />
                         <Column className="main" horizontal="center" />
@@ -47,7 +46,6 @@ class FlightInfo extends Component {
                                 <div><button className="primaryButton" type="submit">Send ETA</button></div>
                             </form>
                     <a href="https://planeschange.herokuapp.com/">Enter Another Flight</a>
-                    <div horizontal="center" className="footer" />
 
                 </div>
             </div>
