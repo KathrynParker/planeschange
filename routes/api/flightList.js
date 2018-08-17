@@ -3,9 +3,11 @@ const router = express.Router();
 const Axios = require('axios');
 
 
-router.get('/availFlights/:item', (req, res, next) => {
-    let origin = this.props.originCity;
-	let destination = this.props.destinationCity;
+router.post('/availFlights/', (req, res, next) => {
+    let origin = req.body.originCity;
+    let destination = req.body.destinationCity;
+    
+    console.log('Hey', origin);
 	
 	let today = new Date();
     let year = today.getFullYear();
@@ -17,12 +19,11 @@ router.get('/availFlights/:item', (req, res, next) => {
 
     let fullURL = baseURL + origin + '&destination=' + destination + '&departure_date=' + year + '-' + month + '-' + date;
 
-    console.log('Hey', fullURL);
     
     Axios.get(fullURL)
         .then((response) => {
 
-        const data = response[0].data.outbound;
+        const data = response[0].data;
         res.json({
         	departs_at: data.flights.departs_at,
         	arrives_at: data.flights.arrives_at,
