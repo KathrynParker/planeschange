@@ -39,7 +39,6 @@ class FlightInfo extends Component {
                             <FlightStatus status={this.props.flight.status} />
                             <DepartureTime filed_departuretime={this.props.flight.filed_departuretime} />
                             <Arrivaltime estimatedarrivaltime={this.props.flight.estimatedarrivaltime} />
-
                             <form id="emailForm" onSubmit={this.email.bind(this)}>
                                 <div><h5 className="emailSubhead">Email your ETA!</h5></div>
                                 <div><input className="ghostInput" type="text" name="fromEmail" placeholder="From email"></input></div>

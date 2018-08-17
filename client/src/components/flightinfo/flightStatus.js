@@ -3,13 +3,13 @@ import React, { Component } from 'react';
 function translateStatus(origStatus) {
 
 	if (origStatus === 'L') {
-		return 'Landed';
+		return 'Touch Down!';
 	} else if (origStatus === 'S') {
-		return 'Scheduled';
+		return 'On Time';
 	} else if (origStatus === 'A') {
-		return 'Active';
+		return 'In Flight';
 	} else if (origStatus === 'U') {
-		return 'Unknown';
+		return '¯\_(ツ)_/¯';
 	} else if (origStatus === 'R') {
 		return 'Redirected';
 	} else if (origStatus === 'D') {
@@ -19,7 +19,7 @@ function translateStatus(origStatus) {
 	} else if (origStatus === 'NO') {
 		return 'Not Operational';
 	} else {
-		return 'Unknown';
+		return '¯\_(ツ)_/¯';
 	}
 }
 
