@@ -13,10 +13,10 @@ class App extends Component {
         return (
             <div>
                 <Header />
-                <Ticket />
                 <Footer />
                 <Switch>
                     <Route path="/availFlights" component={AvailFlights} />
+                    <Route path="/" component={Ticket} />
                 </Switch>
             </div>
 
