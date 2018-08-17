@@ -3,7 +3,7 @@ const router = express.Router();
 const Axios = require('axios');
 
 
-router.get('/:item', (req, res, next) => {
+router.get('/availFlights/:item', (req, res, next) => {
     let origin = this.props.originCity;
 	let destination = this.props.destinationCity;
 	
