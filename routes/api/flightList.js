@@ -21,23 +21,22 @@ router.post('/availFlights/', (req, res, next) => {
 
     let fullURL = baseURL + origin + '&destination=' + destination + '&departure_date=' + year + '-' + month + '-' + date;
 
-    console.log('Hey', month, date);
     console.log('Hey', fullURL);
     
     Axios.get(fullURL)
         .then((response) => {
-
-        const data = response[0].data;
+        console.log('Hey', response);
+        const data1 = response.data.results.itineraries.outbound.flights;
+        const data2 = response.results.itineraries.fare;
         res.json({
-        	departs_at: data.flights.departs_at,
-        	arrives_at: data.flights.arrives_at,
-        	airline: data.flights.operating_airline,
-        	total_price: data.fare.total_price
+        	departs_at: data1.departs_at,
+        	arrives_at: data1.arrives_at,
+        	airline: data1.operating_airline,
+        	total_price: data2.total_price
         });
-        console.log(departs_at);
     })
     .catch((err)=> {
-        console.log(err);
+        console.log('BEGIN ERROR:', err, 'END ERROR');
         res.json({
             'status': 'error',
             'message': 'Failed to reach Amadeus.'
