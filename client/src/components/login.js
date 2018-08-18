@@ -18,7 +18,7 @@ class Login extends Component {
         <div>
             {this.state.user ? (
                 <div className="child loginMaxWidth">
-                    <div className="container ticket p-4">
+                    <div className="container loginTicket p-4">
                         <div className="logoPNGSmall mb-4"><img src={logo33x} alt="logo" /></div>
                             <div>
                                 <h2 className="text-center">Hope you have a safe journey,</h2>
@@ -31,15 +31,15 @@ class Login extends Component {
                 </div>
             ) : (
                 <div className="child loginMaxWidth">
-                    <div className="container ticket p-4">
+                    <div className="container loginTicket p-4">
 
                         <div className="logoPNGSmall "><img src={logo33x} alt="logo" /></div>
                         <div className="btn-group btn-group-justified mb-2 mt-2" role="group" aria-label="Basic example">
                             <div className="btn-group">
-                            <button type="button" className="btn btn-light mt-1" onClick={this.showSignupForm} disabled={this.state.signupFormVisible}>Login</button>
+                            <button type="button" className="btn btn-light mt-1" onClick={this.showLoginForm.bind(this)} disabled={!this.state.signupFormVisible}>Login</button>
                             </div>
                             <div className="btn-group">
-                            <button type="button" className="btn btn-light mt-1" onClick={this.showLoginForm} disabled={!this.state.signupFormVisible}>Register</button>
+                            <button type="button" className="btn btn-light mt-1" onClick={this.showSignupForm.bind(this)} disabled={this.state.signupFormVisible}>Register</button>
                             </div>
                         </div>
 
