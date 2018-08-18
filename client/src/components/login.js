@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
-
-
+import "./login.css";
+import logo33x from './images/logo33.png';
 
 class Login extends Component {
     constructor(props) {
@@ -18,51 +17,59 @@ class Login extends Component {
         return (
         <div>
             {this.state.user ? (
-                <div className="container formVertCenter">
-                    <div className="row text-center">
-                        <h5 className="text-center">Hope you have a safe journey,</h5>
+                <div className="child loginMaxWidth">
+                    <div className="container ticket p-4">
+                        <div className="logoPNGSmall mb-4"><img src={logo33x} alt="logo" /></div>
+                            <div>
+                                <h2 className="text-center">Hope you have a safe journey,</h2>
+                                <h3 className="text-center text-primary mb-3">{this.state.user.username}</h3>
+                            <div>
+                            </div>
+                            <button type="button" className="btn btn-block btn-light" onClick={this.logout}>Log Out</button>
+                        </div>
                     </div>
-                    <div>
-                        <h3 className="text-center text-primary mb-3">{this.state.user.username}</h3>
-                    </div>
-                    <button type="button" className="btn btn-block btn-light" onClick={this.logout}>Log Out</button>
                 </div>
             ) : (
-                <div className="container-fluid formVertCenter">
-                    <div className="btn-group btn-group-justified mb-4" role="group" aria-label="Basic example">
-                        <div className="btn-group">
-                        <button type="button" className="btn btn-light" onClick={this.showSignupForm} disabled={this.state.signupFormVisible}>Login</button>
-                        </div>
-                        <div className="btn-group">
-                        <button type="button" className="btn btn-light" onClick={this.showLoginForm} disabled={!this.state.signupFormVisible}>Register</button>
-                        </div>
-                    </div>
+                <div className="child loginMaxWidth">
+                    <div className="container ticket p-4">
 
-                {this.state.signupFormVisible ? (
-                    <form id="registerForm" onSubmit={this.register}>
-                        <div className="form-row">
-                            <div className="col-12">
-                                <input name="registerUsername" type="text"  className="form-control" placeholder="User Name" required />
+                        <div className="logoPNGSmall "><img src={logo33x} alt="logo" /></div>
+                        <div className="btn-group btn-group-justified mb-2 mt-2" role="group" aria-label="Basic example">
+                            <div className="btn-group">
+                            <button type="button" className="btn btn-light mt-1" onClick={this.showSignupForm} disabled={this.state.signupFormVisible}>Login</button>
                             </div>
-                            <div className="col-12">
-                                <input name="registerPassword" type="password" className="form-control" placeholder="Password" required />
+                            <div className="btn-group">
+                            <button type="button" className="btn btn-light mt-1" onClick={this.showLoginForm} disabled={!this.state.signupFormVisible}>Register</button>
                             </div>
                         </div>
-                        <button type="submit" className="btn btn-light btn-block mt-4">Register</button>
-                    </form>
-                    ) : (
-                        <form id="loginForm" onSubmit={this.login}>
+
+                    {this.state.signupFormVisible ? (
+                        <form id="registerForm" onSubmit={this.register}>
                             <div className="form-row">
                                 <div className="col-12">
-                                <input name="username" type="text"  className="form-control" placeholder="User Name" required />
+                                    <input name="registerUsername" type="text"  className="form-control" placeholder="User Name" required />
                                 </div>
                                 <div className="col-12">
-                                <input name="password" type="password" className="form-control" placeholder="Password" required />
+                                    <input name="registerPassword" type="password" className="form-control" placeholder="Password" required />
                                 </div>
-                                </div>
-                            <button type="submit" className="btn btn-light btn-block mt-4">Login</button>
+                            </div>
+                            <button type="submit" className="btn btn-light btn-block mt-4">Register</button>
                         </form>
-                    )}
+                        ) : (
+                            <form id="loginForm" onSubmit={this.login}>
+                                <div className="form-row">
+                                    <div className="col-12">
+                                    <input name="username" type="text"  className="form-control" placeholder="User Name" required />
+                                    </div>
+                                    <div className="col-12">
+                                    <input name="password" type="password" className="form-control" placeholder="Password" required />
+                                    </div>
+                                    </div>
+                                <button type="submit" className="btn btn-light btn-block mt-4">Login</button>
+                            </form>
+                        )}
+
+                    </div>
                 </div>
             )
             }

@@ -6,6 +6,7 @@ import Footer from './components/footer';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Switch } from 'react-router-dom';
 import AvailFlights from './components/availflights/availFlights';
+import Login from './components/login';
 
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
                 <Footer />
                 <Switch>
                     <Route path="/availFlights" component={AvailFlights} />
+                    <Route path="/login" component={Login} />
                     <Route path="/" component={Ticket} />
                 </Switch>
             </div>

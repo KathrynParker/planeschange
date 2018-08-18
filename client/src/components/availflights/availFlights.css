@@ -1,0 +1,44 @@
+.row {
+  margin-bottom: 1rem;
+}
+.row .row {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+[class*="col-"] {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.roundedCard:before,
+.roundedCard:after {
+  content: "";
+  z-index: -1;
+  width: 200px;
+  position: absolute;
+  bottom: 1px;
+  left: 10px;
+  top: 80%;
+  box-shadow: 0 20px 15px #333;
+  transform: rotate(-3deg);
+}
+
+.roundedCard:after {
+  left: auto;
+  right: 10px;
+  transform: rotate(3deg);
+}
+
+.roundedCard {
+  background: #fff;
+  border-radius: 20px;
+  position: relative;
+  border-top: solid white 20px;
+  border-bottom: solid white 20px;
+}
+
+.roundedCardBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

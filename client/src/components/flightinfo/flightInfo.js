@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Hero, Column, Row } from "simple-flexbox";
-import Header from '../header';
-
+import { Link, Route, Switch } from 'react-router-dom';
 
 import Arrivaltime from './arrTime.js';
 import DepartureTime from './depTime.js';
@@ -31,22 +29,27 @@ class FlightInfo extends Component {
 	render() {
 		return (
 			<div>
-                <div className="wrapper">
-                    <Row horizontal="center" className="header" />
-                        <Column className="main" horizontal="center" />
+                <div className="container">
+                    <div className="row">
+                        <div className="col-8">
                             <FlightNum ident={this.props.flight.ident}/>
                             <GateNumber faFlightID={this.props.flight.faFlightID} />
                             <FlightStatus status={this.props.flight.status} />
                             <DepartureTime filed_departuretime={this.props.flight.filed_departuretime} />
                             <Arrivaltime estimatedarrivaltime={this.props.flight.estimatedarrivaltime} />
+                            <a href="/" className="link">Enter Another Flight</a>
+
+
+                        </div>
+                        <div className="col">
                             <form id="emailForm" onSubmit={this.email.bind(this)}>
                                 <div><h5 className="emailSubhead">Email your ETA!</h5></div>
                                 <div><input className="ghostInput" type="text" name="fromEmail" placeholder="From email"></input></div>
                                 <div><input className="ghostInput" type="text" name="toEmail" placeholder="To email"></input></div>
                                 <div><button className="primaryButton" type="submit">Send ETA</button></div>
                             </form>
-                    <a href="https://planeschange.herokuapp.com/">Enter Another Flight</a>
-
+                        </div>
+                    </div>
                 </div>
             </div>
 
