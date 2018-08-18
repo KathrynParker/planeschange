@@ -1,45 +1,46 @@
 import React, { Component } from 'react';
 import FlightList from './flightList';
-import { checkServerIdentity } from 'tls';
+import './availFlights.css';
 import axios from 'axios';
 
 
 class AvailFlights extends Component {
 
-	constructor() {
-		super();
-		this.state = {
-			flights: [],
-			destinationCity: '',
-			originCity: ''
-		}
-	}    
+    constructor() {
+        super();
+        this.state = {
+            flights: [],
+            destination: '',
+            origin: ''
+        }
+    }
 
-	componentWillMount() {
-		axios.post('/api/flightList/availFlights', {
-				destinationCity: this.props.destinationCity,
-				originCity: this.props.originCity
-		}).then(({ response }) => {
-			this.setState({
-				flights: response
-			});
-		})
-	}
+    componentWillMount() {
+        console.log(this.props);
+        axios.post('/api/flightList/availFlights', {
+                destination: this.props.destination,
+                origin: this.props.origin
+        }).then(({ response }) => {
+            this.setState({
+                flights: response
+            });
+        })
+    }
 
 render() {
-		
-	// let jobsJSX = this.state.jobs.map( (job, index) => {
-	// 	return <JobsListItem key={index} {...job}/>
-	// });
-	
-	return (
-			<div className="container">
-                <div className="row">
-                    <FlightList />
-                </div>
-            </div>
-			)
-	}
+
+    // let FlightListJSX = this.state.flights.map( (flight, index) => {
+    //     return <FlightList key={index} {...flight} />
+    // });
+
+    return (
+		<div>
+            {/* <FlightListJSX /> */}
+            <FlightList />
+		</div>
+            )
+    }
 }
 
 export default AvailFlights;
+

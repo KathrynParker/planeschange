@@ -1,0 +1,26 @@
+.formVertCenter {
+  margin-top: 35px;
+}
+
+.loginMaxWidth {
+  max-width: 500px;
+}
+
+.logoPNGSmall img {
+  max-width: 150px;
+}
+
+.logoPNGSmall {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.ticket {
+  background: #b4dfff;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  position: relative;
+  border-top: solid white 20px;
+  border-bottom: solid white 20px;
+  height: 500px;
+}

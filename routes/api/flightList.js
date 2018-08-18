@@ -4,14 +4,16 @@ const Axios = require('axios');
 
 
 router.post('/availFlights/', (req, res, next) => {
-    let origin = req.body.originCity;
-    let destination = req.body.destinationCity;
+    let origin1 = req.body.origin;
+    let origin = origin1.slice(1);
     
-    console.log('Hey', origin);
-	
+    let destination1 = req.body.destination; 
+    let destination = destination1.slice(1);
+    	
 	let today = new Date();
     let year = today.getFullYear();
-    let month = today.getMonth() + 1;
+    let month = '08';
+    // let month = today.getMonth() + 1;
 	let date = today.getDate() + 1;
 
 
@@ -19,6 +21,8 @@ router.post('/availFlights/', (req, res, next) => {
 
     let fullURL = baseURL + origin + '&destination=' + destination + '&departure_date=' + year + '-' + month + '-' + date;
 
+    console.log('Hey', month, date);
+    console.log('Hey', fullURL);
     
     Axios.get(fullURL)
         .then((response) => {
@@ -29,8 +33,8 @@ router.post('/availFlights/', (req, res, next) => {
         	arrives_at: data.flights.arrives_at,
         	airline: data.flights.operating_airline,
         	total_price: data.fare.total_price
-            
         });
+        console.log(departs_at);
     })
     .catch((err)=> {
         console.log(err);
