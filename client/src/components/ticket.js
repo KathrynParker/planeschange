@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./ticket.css";
 import SearchForm from "./searchForm";
-import Login from "./login";
 
 class Ticket extends Component {
   render() {
@@ -10,13 +9,9 @@ class Ticket extends Component {
         <div className="container ticket">
 
               <div className="row">
-                <div className="col-8">
+                <div className="col">
                   <SearchForm />
                 </div>
-                <div className="col">
-                  <div><Login /></div>
-                </div>
-
               </div>
         </div>
       </div>
