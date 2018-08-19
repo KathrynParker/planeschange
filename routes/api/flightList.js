@@ -4,10 +4,10 @@ const Axios = require('axios');
 
 
 router.post('/availFlights/', (req, res, next) => {
-    // let origin = req.body.origin;
-    // // let origin = origin1.slice(1);
+    // let origin1 = req.body.origin;
+    // let origin = origin1.slice(1);
     
-    // let destination = req.body.destination; 
+    // let destination1 = req.body.destination; 
     // let destination = destination1.slice(1);
     	
 	let today = new Date();
@@ -21,18 +21,28 @@ router.post('/availFlights/', (req, res, next) => {
 
     // let fullURL = baseURL + origin + '&destination=' + destination + '&departure_date=' + year + '-' + month + '-' + date;
 
+    // hardcoded the fullURL in for now, having trouble getting the origin and destination to populate
     let fullURL = 'https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=xi6ot2uTGalYkx2p7pD7EEdSrsQAea3q&origin=ATL&destination=EWR&departure_date=2018-08-20';
 
     Axios.get(fullURL)
-        .then((response) => {
-        const data1 = response.data.results[0].itineraries[0].outbound.flights;
-        const data2 = response.data.results[0].fare;
-        res.json({
-        	departs_at: data1.departs_at,
-        	arrives_at: data1.arrives_at,
-        	airline: data1.operating_airline,
-        	total_price: data2.total_price
+    .then((response) => {
+        console.log('Hey', response);
+        let results = [];
+        response.data.results.forEach(result => {
+            let flights = [];
+            result.itineraries.forEach(itinerary => {
+                flights.push({
+                    departs_at: itinerary.departs_at,
+                    arrives_at: itinerary.arrives_at,
+                    airline: itinerary.operating_airline,
+                })
+            })
+            response.push({
+                flights: flights, 
+                price: result.fare.total_price,
+            });
         });
+        res.json(results);
     })
     .catch((err)=> {
         console.log('BEGIN ERROR:', err, 'END ERROR');

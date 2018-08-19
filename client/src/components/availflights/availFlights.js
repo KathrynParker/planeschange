@@ -36,6 +36,20 @@ render() {
 		<div>
             {/* <FlightListJSX /> */}
             <FlightList />
+
+            {/* This is the code from Lachlan
+            <div className="results">
+                {results.map(result => (
+                    <div className="result">
+                    <div>{{price}}</div>
+                    {flights.map(flight => <FlightList />)}
+                    </div>
+                    )
+                    )}
+                )}
+            </div> */}
+
+
 		</div>
         )
     }
