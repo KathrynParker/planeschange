@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Switch } from 'react-router-dom';
 import AvailFlights from './components/availflights/availFlights';
 import Login from './components/login';
+import UnderConstruction from './components/underConstruction';
 
 
 class App extends Component {
@@ -33,12 +34,14 @@ class App extends Component {
                 <Header />
                 <Footer />
                 <Switch>
+                    <Route path="/login" component={Login} />
                     <Route path="/availFlights" render={() =>{
                         return (
                             <AvailFlights destination={this.state.destination} origin={this.state.origin}/>
                         )
                     }} />
-                    <Route path="/login" component={Login} />
+                    <Route path="/hotels" component={UnderConstruction} />
+                    <Route path="/rentalCars" component={UnderConstruction} />
                     <Route path="/" render={() =>{
                         return (
                             <Ticket setOriginDest={this.setOriginDest.bind(this)}/>

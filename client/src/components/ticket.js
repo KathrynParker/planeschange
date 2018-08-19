@@ -7,7 +7,7 @@ class Ticket extends Component {
     return (
       <div className="child">
         <div className="container ticket">
-                  <SearchForm setOriginDest={this.props.setOriginDest}/>
+          <SearchForm setOriginDest={this.props.setOriginDest}/>
         </div>
       </div>
     );
