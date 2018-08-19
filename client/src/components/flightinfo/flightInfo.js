@@ -7,6 +7,7 @@ import DepartureTime from './depTime.js';
 import FlightNum from './flightNum';
 import FlightStatus from './flightStatus';
 import GateNumber from './gateNum';
+import logo33x from '../images/logo33.png';
 
 class FlightInfo extends Component {
     email(event) {
@@ -31,7 +32,7 @@ class FlightInfo extends Component {
 			<div>
                 <div className="container">
                     <div className="row">
-                        <div className="col-8">
+                        <div className="col">
                             <FlightNum ident={this.props.flight.ident}/>
                             <GateNumber faFlightID={this.props.flight.faFlightID} />
                             <FlightStatus status={this.props.flight.status} />
@@ -41,12 +42,13 @@ class FlightInfo extends Component {
 
 
                         </div>
-                        <div className="col">
+                        <div className="col-4">
+                        <div className="logoPNGSmall m-auto"><img src={logo33x} alt="logo" /></div>
                             <form id="emailForm" onSubmit={this.email.bind(this)}>
-                                <div><h5 className="emailSubhead">Email your ETA!</h5></div>
-                                <div><input className="ghostInput" type="text" name="fromEmail" placeholder="From email"></input></div>
-                                <div><input className="ghostInput" type="text" name="toEmail" placeholder="To email"></input></div>
-                                <div><button className="primaryButton" type="submit">Send ETA</button></div>
+                                <div><h5 className="emailSubhead text-center m-4">Email your ETA!</h5></div>
+                                <div><input className="form-control mb-4" type="text" name="fromEmail" placeholder="From Email"></input></div>
+                                <div><input className="form-control mb-4" type="text" name="toEmail" placeholder="To Email"></input></div>
+                                <div><button className="btn btn-block btn-primary mt-4" type="submit">Send ETA</button></div>
                             </form>
                         </div>
                     </div>
