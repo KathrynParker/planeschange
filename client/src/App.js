@@ -12,7 +12,7 @@ import UnderConstruction from './components/underConstruction';
 
 
 class App extends Component {
-    
+
     constructor() {
         super();
         this.state = {
@@ -28,13 +28,14 @@ class App extends Component {
             origin
         })
     }
-    
+
     render() {
         return (
             <div>
                 <Header />
                 <Footer />
                 <Switch>
+                    <Route path="/about" component={AboutUs} />
                     <Route path="/login" component={Login} />
                     <Route path="/availFlights" render={() =>{
                         return (
@@ -48,7 +49,6 @@ class App extends Component {
                             <Ticket setOriginDest={this.setOriginDest.bind(this)}/>
                         )
                     }} />
-                    <Route path="/about" component={AboutUs} />
                 </Switch>
             </div>
 
