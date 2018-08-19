@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Switch } from 'react-router-dom';
 import AvailFlights from './components/availflights/availFlights';
 import Login from './components/login';
+import UnderConstruction from './components/underConstruction';
 
 
 class App extends Component {
@@ -16,8 +17,10 @@ class App extends Component {
                 <Header />
                 <Footer />
                 <Switch>
-                    <Route path="/availFlights" component={AvailFlights} />
                     <Route path="/login" component={Login} />
+                    <Route path="/availFlights" component={AvailFlights} />
+                    <Route path="/hotels" component={UnderConstruction} />
+                    <Route path="/rentalCars" component={UnderConstruction} />
                     <Route path="/" component={Ticket} />
                 </Switch>
             </div>
