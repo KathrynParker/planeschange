@@ -5,7 +5,6 @@
 
 .logoPNG {
   text-align: center;
-  margin-top: -40px;
   margin-bottom: auto;
 }
 
@@ -44,5 +43,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: -500px;
+  color: #2b67ac
+}
+
+.link a {
+  color: #2b67ac;
 }
