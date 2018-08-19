@@ -26,7 +26,7 @@ class SearchForm extends Component {
                         <div className="logoPNG"><img src={logo33x} alt="logo" /></div>
                         <form onSubmit={this.flightNumEntered}>
                         <div className="searchFlightNumText mt-2 mb-0">
-                                <p>Enter a Flight Number to Begin</p>
+                                <h4>Enter a Flight Number to Begin</h4>
                             </div>
                             <div className="searchField">
                                 <input type="text" name="flightNum" placeholder="ex. DL8996" />
@@ -34,8 +34,8 @@ class SearchForm extends Component {
                             </div>
 
                         </form>
-                        <div className="searchLoginText">
-                            <p><a href="/login">Login </a>to Save</p>
+                        <div className="text-center m-2 link">
+                            <p><a href="/login">Login </a>to Save Your Favorites</p>
                         </div>
                     </div>
             )}
