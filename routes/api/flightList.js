@@ -23,39 +23,20 @@ router.post('/availFlights/', (req, res, next) => {
 
     console.log('Hey', fullURL);
     
-    // Axios.get(fullURL)
-    //     .then((response) => {
-    //     const data1 = response.data.results[0].itineraries[0].outbound.flights;
-    //     console.log('Hey', data1);
-    //     const data2 = response.data.results[0].itineraries[0].fare;
-    //     res.json({
-    //     	departs_at: data1.departs_at,
-    //     	arrives_at: data1.arrives_at,
-    //     	airline: data1.operating_airline,
-    //     	total_price: data2.total_price
-    //     });
-    // })
     Axios.get(fullURL)
-    .then((response) => {
-        let results = [];
-        response.data.results.forEach(result => {
-            let flights = [];
-            result.itineraies.forEach(itinerary => {
-                flights.push({
-                    departs_at: itinerary.departs_at,
-                    arrives_at: itinerary.arrives_at,
-                    airline: itinerary.operating_airline,
-                })
-            })
-            response.push({
-                flights: flights, 
-                price: result.fare.total_price,
-            });
+        .then((response) => {
+
+        const data = response[0].data.outbound;
+        res.json({
+        	departs_at: data.flights.departs_at,
+        	arrives_at: data.flights.arrives_at,
+        	airline: data.flights.operating_airline,
+        	total_price: data.fare.total_price
+            
         });
-        res.json(results);
     })
     .catch((err)=> {
-        console.log('BEGIN ERROR:', err, 'END ERROR');
+        console.log(err);
         res.json({
             'status': 'error',
             'message': 'Failed to reach Amadeus.'

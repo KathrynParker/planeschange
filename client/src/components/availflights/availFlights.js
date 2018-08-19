@@ -16,7 +16,6 @@ class AvailFlights extends Component {
     }
 
     componentWillMount() {
-        console.log(this.props);
         axios.post('/api/flightList/availFlights', {
                 destination: this.props.destination,
                 origin: this.props.origin
@@ -38,7 +37,7 @@ render() {
             {/* <FlightListJSX /> */}
             <FlightList />
 		</div>
-            )
+        )
     }
 }
 
