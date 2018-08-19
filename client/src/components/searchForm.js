@@ -22,19 +22,22 @@ class SearchForm extends Component {
             {this.state.flight ? (
                 <FlightInfo flight={this.state.flight} />
             ) : (
-
                     <div className="child">
                         <div className="logoPNG"><img src={logo33x} alt="logo" /></div>
                         <form onSubmit={this.flightNumEntered}>
-                        <div className="searchField">
-                            <input type="text" name="flightNum" placeholder="ex. DL8996" />
-                            <button class="" type="submit">Show Me</button>
-                        </div>
-                        <a href="/login" className="searchLoginText mt-4">Login to Save Flight Information</a>
+                        <div className="searchFlightNumText mt-2 mb-0">
+                                <p>Enter a Flight Number to Begin</p>
+                            </div>
+                            <div className="searchField">
+                                <input type="text" name="flightNum" placeholder="ex. DL8996" />
+                                <button class="" type="submit">Show Me</button>
+                            </div>
+
                         </form>
+                        <div className="searchLoginText">
+                            <p><a href="/login">Login </a>to Save</p>
+                        </div>
                     </div>
-
-
             )}
         </div>
         );
