@@ -10,15 +10,15 @@ class AvailFlights extends Component {
         super();
         this.state = {
             flights: [],
-            destinationCity: '',
-            originCity: ''
+            destination: '',
+            origin: ''
         }
     }
 
     componentWillMount() {
         axios.post('/api/flightList/availFlights', {
-                destinationCity: this.props.destinationCity,
-                originCity: this.props.originCity
+                destination: this.props.destination,
+                origin: this.props.origin
         }).then(({ response }) => {
             this.setState({
                 flights: response
@@ -28,15 +28,16 @@ class AvailFlights extends Component {
 
 render() {
 
-    // let jobsJSX = this.state.jobs.map( (job, index) => {
-    //     return <JobsListItem key={index} {...job}/>
+    // let FlightListJSX = this.state.flights.map( (flight, index) => {
+    //     return <FlightList key={index} {...flight} />
     // });
 
     return (
 		<div>
-			<FlightList />
+            {/* <FlightListJSX /> */}
+            <FlightList />
 		</div>
-            )
+        )
     }
 }
 

@@ -12,6 +12,23 @@ import UnderConstruction from './components/underConstruction';
 
 
 class App extends Component {
+    
+    constructor() {
+        super();
+        this.state = {
+            flights: [],
+            destination: '',
+            origin: ''
+        }
+    }
+
+    setOriginDest(origin, destination) {
+        this.setState({
+            destination,
+            origin
+        })
+    }
+    
     render() {
         return (
             <div>
@@ -19,11 +36,19 @@ class App extends Component {
                 <Footer />
                 <Switch>
                     <Route path="/login" component={Login} />
-                    <Route path="/availFlights" component={AvailFlights} />
+                    <Route path="/availFlights" render={() =>{
+                        return (
+                            <AvailFlights destination={this.state.destination} origin={this.state.origin}/>
+                        )
+                    }} />
                     <Route path="/hotels" component={UnderConstruction} />
                     <Route path="/rentalCars" component={UnderConstruction} />
+                    <Route path="/" render={() =>{
+                        return (
+                            <Ticket setOriginDest={this.setOriginDest.bind(this)}/>
+                        )
+                    }} />
                     <Route path="/about" component={AboutUs} />
-                    <Route path="/" component={Ticket} />
                 </Switch>
             </div>
 

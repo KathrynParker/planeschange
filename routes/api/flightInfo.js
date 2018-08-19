@@ -41,8 +41,8 @@ router.get('/:flight', (req, res, next) => {
             filed_departuretime: flight.filed_departuretime,
             estimatedarrivaltime: flight.estimatedarrivaltime,
             faFlightID: flight.faFlightID,
-            originCity: flight.originCity,
-            destinationCity: flight.destinationCity,
+            origin: flight.origin,
+            destination: flight.destination,
             ident: flight.ident,
             status: status[0].status
         })
