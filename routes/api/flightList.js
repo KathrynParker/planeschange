@@ -4,11 +4,11 @@ const Axios = require('axios');
 
 
 router.post('/availFlights/', (req, res, next) => {
-    let origin1 = req.body.originCity;
-    let origin = origin1.slice(1);
+    // let origin = req.body.origin;
+    // // let origin = origin1.slice(1);
     
-    let destination1 = req.body.destinationCity; 
-    let destination = destination1.slice(1);
+    // let destination = req.body.destination; 
+    // let destination = destination1.slice(1);
     	
 	let today = new Date();
     let year = today.getFullYear();
@@ -17,15 +17,16 @@ router.post('/availFlights/', (req, res, next) => {
 	let date = today.getDate() + 1;
 
 
-    let baseURL = `https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=${process.env.AM_KEY}&origin=`;
+    // let baseURL = `https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=${process.env.AM_KEY}&origin=`;
 
-    let fullURL = baseURL + origin + '&destination=' + destination + '&departure_date=' + year + '-' + month + '-' + date;
-    
+    // let fullURL = baseURL + origin + '&destination=' + destination + '&departure_date=' + year + '-' + month + '-' + date;
+
+    let fullURL = 'https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=xi6ot2uTGalYkx2p7pD7EEdSrsQAea3q&origin=ATL&destination=EWR&departure_date=2018-08-20';
+
     Axios.get(fullURL)
         .then((response) => {
-        console.log('Hey', response);
-        const data1 = response.data.results.itineraries.outbound.flights;
-        const data2 = response.results.itineraries.fare;
+        const data1 = response.data.results[0].itineraries[0].outbound.flights;
+        const data2 = response.data.results[0].fare;
         res.json({
         	departs_at: data1.departs_at,
         	arrives_at: data1.arrives_at,
