@@ -15,13 +15,13 @@ class Header extends Component {
                   <a href="/" className="nav-link">Home</a>
                 </li>
                 <li className="nav-item">
-                  <a href="/" className="nav-link">Hotels</a>
-                </li>
-                <li className="nav-item">
                   <Link to="/availFlights" className="nav-link">Available Flights</Link>
                 </li>
                 <li className="nav-item">
-                  <a href="/" className="nav-link">Rental Cars</a>
+                  <Link to="/hotels" className="nav-link">Hotelss</Link>
+                </li>
+                <li className="nav-item">
+                  <a href="/rentalCars" className="nav-link">Rental Cars</a>
                 </li>
                 <li className="nav-item">
                   <Link to="/login" className="nav-link">Login</Link>
