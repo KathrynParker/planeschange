@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import planeBug from './images/planebug.png';
+import "./header.css";
 
 
 class Header extends Component {
@@ -8,8 +10,11 @@ class Header extends Component {
       <div>
         <nav className="navbar navbar-expand-sm navbar-dark bg-pcBlue mb-3 py-0">
           <div className="container">
-            <a href="/" className="navbar-brand">Planes Change</a>
-            <div>
+            <a href="/" className="navbar-brand"><img src={planeBug} className="d-inline-block align-top mr-2" width="23" alt="logo" />
+            Planes Change
+            </a>
+          <div>
+
               <ul className="navbar-nav mr-auto">
                 <li className="nav-item">
                   <a href="/" className="nav-link">Home</a>

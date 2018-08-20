@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import underconst from './images/underconst.png';
-import "./aboutUs.js";
+import "./aboutUs.css";
 
 class AboutUs extends Component {
   render() {
