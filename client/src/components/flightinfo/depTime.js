@@ -22,7 +22,10 @@ class DepartureTime extends Component {
 		let convertedTime = timeConverter(this.props.filed_departuretime);
 
 		return (
-			<h4 className="times">Departure Time: {convertedTime}</h4>
+			<div className="col">
+				<div><h4>Departure:</h4></div>
+				<div><h3>{convertedTime}</h3></div>
+			</div>
 		)
 	}
 }

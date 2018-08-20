@@ -23,9 +23,11 @@ class GateNumber extends Component {
 
 	render() {
 		return (
-			<div className="inLine">
-			<h3 className="gateNum">Gate: {this.state.gate_orig}</h3>
+			<div className="col">
+				<div><h4 className="gateNum">Gate:</h4></div>
+				<div><h3 className="gateNum">{this.state.gate_orig}</h3></div>
 			</div>
+
 			)
 	}
 }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link, Route, Switch } from 'react-router-dom';
 
 import Arrivaltime from './arrTime.js';
 import DepartureTime from './depTime.js';
@@ -8,6 +7,7 @@ import FlightNum from './flightNum';
 import FlightStatus from './flightStatus';
 import GateNumber from './gateNum';
 import logo33x from '../images/logo33.png';
+import "./flightInfo.css";
 
 class FlightInfo extends Component {
     email(event) {
@@ -32,13 +32,24 @@ class FlightInfo extends Component {
 			<div>
                 <div className="container">
                     <div className="row">
-                        <div className="col">
-                            <FlightNum ident={this.props.flight.ident}/>
-                            <GateNumber faFlightID={this.props.flight.faFlightID} />
-                            <FlightStatus status={this.props.flight.status} />
-                            <DepartureTime filed_departuretime={this.props.flight.filed_departuretime} />
-                            <Arrivaltime estimatedarrivaltime={this.props.flight.estimatedarrivaltime} />
-                            <a href="/" className="link">Enter Another Flight</a>
+                        <div className="col m-auto">
+
+                            <div className="row">
+                                <div className="col m-auto">
+                                    <FlightNum ident={this.props.flight.ident}/>
+                                    <GateNumber faFlightID={this.props.flight.faFlightID} />
+                                </div>
+                                <div className="col m-auto">
+                                    <DepartureTime filed_departuretime={this.props.flight.filed_departuretime} />
+                                    <Arrivaltime estimatedarrivaltime={this.props.flight.estimatedarrivaltime} />
+                                </div>
+                            </div>
+                            <div className="row">
+                                <FlightStatus status={this.props.flight.status} />
+                            </div>
+                            <div className="row">
+                                <a href="/" className="link m-auto">Enter Another Flight</a>
+                            </div>
 
 
                         </div>

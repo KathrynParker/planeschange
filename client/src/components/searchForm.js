@@ -30,7 +30,7 @@ class SearchForm extends Component {
                             </div>
                             <div className="searchField">
                                 <input type="text" name="flightNum" placeholder="ex. DL8996" />
-                                <button class="" type="submit">Show Me</button>
+                                <button type="submit">Show Me</button>
                             </div>
 
                         </form>

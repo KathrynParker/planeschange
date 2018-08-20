@@ -23,7 +23,10 @@ class ArrivalTime extends Component {
 		let convertedTime = timeConverter(this.props.estimatedarrivaltime);
 
 		return (
-			<h4 className="times">Arrival Time: {convertedTime}</h4>
+			<div className="col">
+				<div><h4>Arrival:</h4></div>
+				<div><h3>{convertedTime}</h3></div>
+			</div>
 		)
 	}
 }

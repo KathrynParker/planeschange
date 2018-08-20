@@ -19,7 +19,7 @@ function translateStatus(origStatus) {
 	} else if (origStatus === 'NO') {
 		return 'Not Operational';
 	} else {
-		return '¯\_(ツ)_/¯';
+		return "¯|_(ツ)_|¯";
 	}
 }
 
@@ -33,7 +33,7 @@ class FlightStatus extends Component {
 		let newStatus = translateStatus(this.props.status);
 
 		return (
-			<h2 className="flightStatus">{newStatus}</h2>
+			<div className="col text-center flightStatus">{newStatus}</div>
 			)
 	}
 }
