@@ -3,38 +3,37 @@ import React, { Component } from 'react';
 function translateStatus(origStatus) {
 
 	if (origStatus === 'L') {
-		return 'Touch Down!';
+		return 'TOUCH DOWN!';
 	} else if (origStatus === 'S') {
-		return 'On Time';
+		return 'ON TIME';
 	} else if (origStatus === 'A') {
-		return 'In Flight';
+		return 'IN FLIGHT';
 	} else if (origStatus === 'U') {
-		return '¯\_(ツ)_/¯';
+		return '¯|_(ツ)_|¯';
 	} else if (origStatus === 'R') {
-		return 'Redirected';
+		return 'REDIRECTED';
 	} else if (origStatus === 'D') {
-		return 'Diverted';
+		return 'DIVERTED';
 	} else if (origStatus === 'C') {
-		return 'Cancelled';
+		return 'CANCELLED';
 	} else if (origStatus === 'NO') {
-		return 'Not Operational';
+		return 'NOT OPERATIONAL';
 	} else {
-		return '¯\_(ツ)_/¯';
+		return "¯|_(ツ)_|¯";
 	}
 }
 
-
 class FlightStatus extends Component {
-
-
 	render() {
-
 
 		let newStatus = translateStatus(this.props.status);
 
 		return (
-			<h2 className="flightStatus">{newStatus}</h2>
-			)
+			<div className="row text-center y-5">
+				<div className="col-12 p-0"><h3>Flight Status:</h3></div>
+				<div className="col-12 statusLarge p-0">{newStatus}</div>
+			</div>
+		)
 	}
 }
 

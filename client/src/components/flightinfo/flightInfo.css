@@ -1,0 +1,23 @@
+.faIconLeft {
+  font-size: 25px;
+  color: #2b67ac;
+  min-width: 60px;
+}
+
+.faIconRight {
+  font-size: 25px;
+  color: #2b67ac;
+  min-width: 60px;
+}
+
+.statusLarge {
+  font-size: 5em;
+  font-weight: 500;
+  color: #2b67ac;
+  margin-top: -20px;
+}
+
+.rightLine {
+  border-right: dashed 1px #ffffff;
+  margin-right: 10px;
+}
