@@ -4,11 +4,12 @@ const Axios = require('axios');
 
 
 router.post('/availFlights/', (req, res, next) => {
-    let origin1 = req.body.originCity;
-    let origin = origin1.slice(1);
-    
-    let destination1 = req.body.destinationCity; 
-    let destination = destination1.slice(1);
+    if (!req.body.origin) {
+        return res.json({'error': 'no origin given'});
+    }
+    let origin = req.body.origin.slice(1);
+
+    let destination = req.body.destination.slice(1);
     	
 	let today = new Date();
     let year = today.getFullYear();
@@ -20,18 +21,23 @@ router.post('/availFlights/', (req, res, next) => {
     let baseURL = `https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=${process.env.AM_KEY}&origin=`;
 
     let fullURL = baseURL + origin + '&destination=' + destination + '&departure_date=' + year + '-' + month + '-' + date;
-    
+
     Axios.get(fullURL)
-        .then((response) => {
-        console.log('Hey', response);
-        const data1 = response.data.results.itineraries.outbound.flights;
-        const data2 = response.results.itineraries.fare;
-        res.json({
-        	departs_at: data1.departs_at,
-        	arrives_at: data1.arrives_at,
-        	airline: data1.operating_airline,
-        	total_price: data2.total_price
+    .then((response) => {
+        let results = [];
+        response.data.results.forEach(result => {
+            result.itineraries.forEach(itinerary => {
+                itinerary.outbound.flights.forEach(flight => {
+                    results.push({
+                        departs_at: flight.departs_at,
+                        arrives_at: flight.arrives_at,
+                        airline: flight.operating_airline,
+                        price: result.fare.total_price,
+                    })
+                })
+            })
         });
+        res.json(results);
     })
     .catch((err)=> {
         console.log('BEGIN ERROR:', err, 'END ERROR');

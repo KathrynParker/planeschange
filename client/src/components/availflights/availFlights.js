@@ -17,25 +17,22 @@ class AvailFlights extends Component {
 
     componentWillMount() {
         axios.post('/api/flightList/availFlights', {
-                destination: this.props.destination,
-                origin: this.props.origin
-        }).then(({ response }) => {
+            destination: this.props.destination,
+            origin: this.props.origin
+        }).then((response) => {
             this.setState({
-                flights: response
+                flights: response.data
             });
         })
     }
 
 render() {
 
-    // let FlightListJSX = this.state.flights.map( (flight, index) => {
-    //     return <FlightList key={index} {...flight} />
-    // });
-
     return (
 		<div>
-            {/* <FlightListJSX /> */}
-            <FlightList />
+            <div className="results">
+                {this.state.flights.map(flight => <FlightList {...flight} />)}
+            </div>
 		</div>
         )
     }
