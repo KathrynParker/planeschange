@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Axios from '../../../../node_modules/axios';
 
-
 class GateNumber extends Component {
 
 	constructor() {
@@ -10,7 +9,6 @@ class GateNumber extends Component {
             gate_orig: '',
         }
     }
-
 
 	componentWillMount() {
 		Axios.get(`/api/gate/${this.props.faFlightID}`)
@@ -24,10 +22,12 @@ class GateNumber extends Component {
 	render() {
 		return (
 			<div className="col">
-				<div><h4 className="gateNum">Gate:</h4></div>
-				<div><h3 className="gateNum">{this.state.gate_orig}</h3></div>
+				<div>
+					<div><i className="col-2 float-right fas fa-door-open faIconRight pt-0"></i></div>
+					<h5 className="text-right">GATE NUMBER:</h5>
+					<h3 className="text-right">{this.state.gate_orig}</h3>
+				</div>
 			</div>
-
 			)
 	}
 }

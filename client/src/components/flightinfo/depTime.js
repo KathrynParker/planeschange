@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 function timeConverter(UNIX_timestamp){
 	let a = new Date(UNIX_timestamp * 1000);
 	let hour = a.getHours(); // looks like this is EDT
@@ -14,21 +13,21 @@ function timeConverter(UNIX_timestamp){
 	}
 }
 
-
 class DepartureTime extends Component {
-
 	render() {
 
 		let convertedTime = timeConverter(this.props.filed_departuretime);
 
 		return (
 			<div className="col">
-				<div><h4>Departure:</h4></div>
-				<div><h3>{convertedTime}</h3></div>
+				<div><i className="col-2 float-left fas fa-plane-departure faIconLeft pt-0"></i></div>
+				<div>
+					<h5 className="text-left mb-0">DEPARTURE TIME:</h5>
+					<h3 className="text-left mt-1">{convertedTime}</h3>
+				</div>
 			</div>
 		)
 	}
 }
-
 
 export default DepartureTime;

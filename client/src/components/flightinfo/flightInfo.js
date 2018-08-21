@@ -29,28 +29,36 @@ class FlightInfo extends Component {
 
 	render() {
 		return (
-			<div>
-                <div className="container">
-                    <div className="row">
-                        <div className="col m-auto">
 
-                            <div className="row">
-                                <div className="col m-auto">
+                <div className="container pt-3">
+                    <div className="row">
+                        <div className="col rightLine">
+
+                            <div className="row mx-0 p-1">
+                                <div className="col">
                                     <FlightNum ident={this.props.flight.ident}/>
+                                </div>
+                                <div className="col">
                                     <GateNumber faFlightID={this.props.flight.faFlightID} />
                                 </div>
-                                <div className="col m-auto">
-                                    <DepartureTime filed_departuretime={this.props.flight.filed_departuretime} />
-                                    <Arrivaltime estimatedarrivaltime={this.props.flight.estimatedarrivaltime} />
-                                </div>
-                            </div>
-                            <div className="row">
-                                <FlightStatus status={this.props.flight.status} />
-                            </div>
-                            <div className="row">
-                                <a href="/" className="link m-auto">Enter Another Flight</a>
                             </div>
 
+                            <div className="p-2">
+                                <FlightStatus status={this.props.flight.status} />
+                            </div>
+
+                            <div className="row">
+                            <div className="col">
+                                    <DepartureTime filed_departuretime={this.props.flight.filed_departuretime} />
+                                </div>
+                                <div className="col">
+                                    <Arrivaltime estimatedarrivaltime={this.props.flight.estimatedarrivaltime} />
+                            </div>
+                            </div>
+
+                            <div className="row">
+                                <a href="/" className="anotherFLight link m-auto">Enter Another Flight</a>
+                            </div>
 
                         </div>
                         <div className="col-4">
@@ -64,7 +72,7 @@ class FlightInfo extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
+
 
 			)
 	}
