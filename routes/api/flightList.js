@@ -4,11 +4,11 @@ const Axios = require('axios');
 
 
 router.post('/availFlights/', (req, res, next) => {
-    // let origin1 = req.body.origin;
-    // let origin = origin1.slice(1);
+    let origin1 = req.body.origin;
+    let origin = origin1.slice(1);
     
-    // let destination1 = req.body.destination; 
-    // let destination = destination1.slice(1);
+    let destination1 = req.body.destination; 
+    let destination = destination1.slice(1);
     	
 	let today = new Date();
     let year = today.getFullYear();
