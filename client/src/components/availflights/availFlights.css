@@ -35,6 +35,9 @@
   position: relative;
   border-top: solid white 20px;
   border-bottom: solid white 20px;
+  margin: 4px;
+  max-width: 350px;
+  border-top: solid 7px #2b67ac;
 }
 
 .roundedCardBox {
