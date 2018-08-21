@@ -29,8 +29,8 @@ class AvailFlights extends Component {
 render() {
 
     return (
-		<div>
-            <div className="results">
+		<div className="container align-center">
+            <div className="row">
                 {this.state.flights.map(flight => <FlightList {...flight} />)}
             </div>
 		</div>
