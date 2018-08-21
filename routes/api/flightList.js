@@ -4,11 +4,12 @@ const Axios = require('axios');
 
 
 router.post('/availFlights/', (req, res, next) => {
-    let origin1 = req.body.origin;
-    let origin = origin1.slice(1);
-    
-    let destination1 = req.body.destination; 
-    let destination = destination1.slice(1);
+    if (!req.body.origin) {
+        return res.json({'error': 'no origin given'});
+    }
+    let origin = req.body.origin.slice(1);
+
+    let destination = req.body.destination.slice(1);
     	
 	let today = new Date();
     let year = today.getFullYear();
@@ -21,24 +22,20 @@ router.post('/availFlights/', (req, res, next) => {
 
     let fullURL = baseURL + origin + '&destination=' + destination + '&departure_date=' + year + '-' + month + '-' + date;
 
-
     Axios.get(fullURL)
     .then((response) => {
-        console.log('Hey', response);
         let results = [];
         response.data.results.forEach(result => {
-            let flights = [];
             result.itineraries.forEach(itinerary => {
-                flights.push({
-                    departs_at: itinerary.departs_at,
-                    arrives_at: itinerary.arrives_at,
-                    airline: itinerary.operating_airline,
+                itinerary.outbound.flights.forEach(flight => {
+                    results.push({
+                        departs_at: flight.departs_at,
+                        arrives_at: flight.arrives_at,
+                        airline: flight.operating_airline,
+                        price: result.fare.total_price,
+                    })
                 })
             })
-            response.push({
-                flights: flights, 
-                price: result.fare.total_price,
-            });
         });
         res.json(results);
     })

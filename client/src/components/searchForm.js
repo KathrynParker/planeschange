@@ -48,6 +48,7 @@ class SearchForm extends Component {
         axios.get(`/api/flightInfo/${event.target.flightNum.value}`)
         .then((response) => {
             console.log(response.data);
+            this.props.setOriginDest(response.data.origin, response.data.destination);
             this.setState({
                 flight: response.data,
             })
