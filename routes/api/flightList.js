@@ -13,14 +13,14 @@ router.post('/availFlights/', (req, res, next) => {
     	
 	let today = new Date();
     let year = today.getFullYear();
-    let month = '08';
-    // let month = today.getMonth() + 1;
+    let month = ('0' + (today.getMonth()+1)).slice(-2);
 	let date = today.getDate() + 1;
-
 
     let baseURL = `https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=${process.env.AM_KEY}&origin=`;
 
     let fullURL = baseURL + origin + '&destination=' + destination + '&departure_date=' + year + '-' + month + '-' + date;
+
+    console.log('Hey', fullURL);
 
     Axios.get(fullURL)
     .then((response) => {
