@@ -20,8 +20,6 @@ router.post('/availFlights/', (req, res, next) => {
 
     let fullURL = baseURL + origin + '&destination=' + destination + '&departure_date=' + year + '-' + month + '-' + date;
 
-    console.log('Hey', fullURL);
-
     Axios.get(fullURL)
     .then((response) => {
         let results = [];
