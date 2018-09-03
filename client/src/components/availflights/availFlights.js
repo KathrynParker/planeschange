@@ -11,7 +11,8 @@ class AvailFlights extends Component {
         this.state = {
             flights: [],
             destination: '',
-            origin: ''
+            origin: '',
+            loading: true
         }
     }
 
