@@ -12,7 +12,6 @@ class AvailFlights extends Component {
             flights: [],
             destination: '',
             origin: '',
-            loading: true
         }
     }
 
@@ -22,15 +21,21 @@ class AvailFlights extends Component {
             origin: this.props.origin
         }).then((response) => {
             this.setState({
-                flights: response.data
+                flights: response.data,
             });
         })
     }
 
+
 render() {
+
 
     return (
 		<div className="container align-center">
+            
+            {/* spinner */}
+            <div id="spinner" className="fa fa-spinner fa-spin spinner-size"></div>
+            
             <div className="row">
                 {this.state.flights.map(flight => <FlightList {...flight} />)}
             </div>
