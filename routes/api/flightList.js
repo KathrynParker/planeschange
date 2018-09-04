@@ -14,7 +14,7 @@ router.post('/availFlights/', (req, res, next) => {
 	let today = new Date();
     let year = today.getFullYear();
     let month = ('0' + (today.getMonth()+1)).slice(-2);
-	let date = today.getDate() + 1;
+    let date = ('0' + (today.getDate()+1)).slice(-2);
 
     let baseURL = `https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=${process.env.AM_KEY}&origin=`;
 
