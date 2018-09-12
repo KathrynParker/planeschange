@@ -23,9 +23,9 @@ class GateNumber extends Component {
 		return (
 			<div className="col">
 				<div>
-					<div><i className="col-2 float-left fas fa-door-open faIconLeft pt-0"></i></div>
-					<h5 className="text-left">GATE NUMBER:</h5>
-					<h3 className="text-left">{this.state.gate_orig}</h3>
+					<div><i className="col-2 float-right fas fa-door-open faIconRight pt-0"></i></div>
+					<h5 className="text-right">GATE NUMBER:</h5>
+					<h3 className="text-right">{this.state.gate_orig}</h3>
 				</div>
 			</div>
 			)
