@@ -20,10 +20,10 @@ class ArrivalTime extends Component {
 
 		return (
 			<div className="col">
-				<div><i className="col-2 float-right fas fa-plane-arrival faIconRight pt-0"></i></div>
+				<div><i className="col-2 float-left fas fa-plane-arrival faIconLeft pt-0"></i></div>
 				<div>
-					<h5 className="text-right mb-0">ARRIVAL TIME:</h5>
-					<h3 className="text-right mt-1">{convertedTime}</h3>
+					<h5 className="text-left mb-0">ARRIVAL TIME:</h5>
+					<h3 className="text-left mt-1">{convertedTime}</h3>
 				</div>
 			</div>
 		)
