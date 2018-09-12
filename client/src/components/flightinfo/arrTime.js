@@ -23,7 +23,7 @@ class ArrivalTime extends Component {
 				<div><i className="col-2 float-left fas fa-plane-arrival faIconLeft pt-0"></i></div>
 				<div>
 					<h5 className="text-left mb-0">ARRIVAL TIME:</h5>
-		<h3 className="text-left mt-1">{convertedTime}</h3>
+					<h3 className="text-left mt-1">{convertedTime}</h3>
 				</div>
 			</div>
 		)
